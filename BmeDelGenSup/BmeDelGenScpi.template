@@ -1,0 +1,116 @@
+##########################################################################
+# Copyright (c) 2017 Helmholtz-Zentrum Berlin für Materialien            #
+#                    und Energie GmbH, Germany (HZB)                     #
+# This program is free software: you can redistribute it and/or modify   #
+# it under the terms of the GNU General Public License as published by   #
+# the Free Software Foundation, either version 3 of the License, or      #
+# (at your option) any later version.                                    #
+#                                                                        #
+# This program is distributed in the hope that it will be useful,        #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          #
+# GNU General Public License for more details.                           #
+#                                                                        #
+# You should have received a copy of the GNU General Public License      #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>. #
+##########################################################################
+
+####
+## General SCPI commands
+####
+
+####
+## SCAN ROUTINE
+####
+# disable scanning
+record (bo, "$(DEVN):disable") {
+    info("autosaveFields_pass0","VAL")
+    field(DESC, "disable scan routine")
+    field(ZNAM, "enabled")
+    field(ONAM, "disabled")
+    field(VAL,  "$(START_DISABLED)")
+    field(PINI, "YES")
+}
+
+####
+## COMMON
+####
+record(waveform, "$(DEVN):rdIdn") {
+    field(DESC, "device IDN")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getIDN(127) $(P) $(A)")
+    field(FTVL, "CHAR")
+    field(NELM, "128")
+    field(PINI, "YES")
+}
+
+record(waveform, "$(DEVN):rdTst") {
+    field(DESC, "selftest")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) selfTest(127) $(P) $(A)")
+    field(FTVL, "CHAR")
+    field(NELM, "128")
+    field(PINI, "YES")
+}
+
+record(bo, "$(DEVN):cmdRst") {
+    field(DESC, "hardware reset")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) cmd(*RST) $(P) $(A)")
+}
+
+record(bo, "$(DEVN):cmdCls") {
+    field(DESC, "clear status")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) cmd(*CLS) $(P) $(A)")
+}
+
+####
+## STATUS
+####
+record(mbbiDirect, "$(DEVN):rdStb") {
+    field(DESC, "statusbyte")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDec(*STB) $(P) $(A)")
+}
+
+record(mbbiDirect, "$(DEVN):rdEsr") {
+    field(DESC, " event status")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDec(*ESR) $(P) $(A)")
+}
+
+# enable for ESB: QYE - query error, DDE - device dependent error, EXE - execution error, CME - command error
+record(mbboDirect, "$(DEVN):setEse") {
+    field(DESC, "event status enable")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDec(*ESE) $(P) $(A)")
+    field(VAL,  "60")
+    field(PINI, "YES")
+    field(FLNK, "$(DEVN):rdEse.PROC")
+}
+
+record(mbbiDirect, "$(DEVN):rdEse") {
+    field(DESC, "event status enable")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDec(*ESE) $(P) $(A)")
+}
+
+record(mbboDirect, "$(DEVN):setSre") {
+    field(DESC, "service requests enable")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDec(*SRE) $(P) $(A)")
+    field(FLNK, "$(DEVN):rdSre.PROC")
+}
+
+record(mbbiDirect, "$(DEVN):rdSre") {
+    field(DESC, "service requests enable")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDec(*SRE) $(P) $(A)")
+}
+
+record(longin, "$(DEVN):stOpc") {
+    field(DESC, "operation completion status")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDec(*OPC) $(P) $(A)")
+}

@@ -1,0 +1,577 @@
+##########################################################################
+# Copyright (c) 2017 Helmholtz-Zentrum Berlin für Materialien            #
+#                    und Energie GmbH, Germany (HZB)                     #
+# This program is free software: you can redistribute it and/or modify   #
+# it under the terms of the GNU General Public License as published by   #
+# the Free Software Foundation, either version 3 of the License, or      #
+# (at your option) any later version.                                    #
+#                                                                        #
+# This program is distributed in the hope that it will be useful,        #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          #
+# GNU General Public License for more details.                           #
+#                                                                        #
+# You should have received a copy of the GNU General Public License      #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>. #
+##########################################################################
+
+####
+## FWD SETTINGS
+####
+record (calcout, "$(DEVN):chkPon$(CARD)") {
+    field(DESC, "init card after power on")
+    field(INPA, "$(DEVN):rdEsr.B7 CPP")
+    field(OOPT, "When Non-zero")
+    field(CALC, "A")
+    field(OUT,  "$(DEVN):fwdInit$(CARD).PROC")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record (seq, "$(DEVN):fwdInit$(CARD)") {
+    field(DESC, "fwd settings")
+    field(SELM, "All")
+    field(LNK1, "$(DEVN):rdDnam$(CARD).PROC")
+    field(PINI, "YES")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):fwdInitTrig$(CARD).PROC")
+}
+
+record (seq, "$(DEVN):fwdInitTrig$(CARD)") {
+    field(DESC, "fwd settings")
+    field(SELM, "All")
+    field(LNK1, "$(DEVN):setBurstCount$(CARD).PROC")
+    field(LNK2, "$(DEVN):setForceTrig$(CARD).PROC")
+    field(LNK3, "$(DEVN):setTrigInhb$(CARD).PROC")
+    field(LNK4, "$(DEVN):setInhbTrig$(CARD).PROC")
+    field(LNK5, "$(DEVN):setStepBack$(CARD).PROC")
+    field(LNK6, "$(DEVN):setPreset$(CARD).PROC")
+    field(LNK7, "$(DEVN):setStepBackTime$(CARD).PROC")
+    field(LNK8, "$(DEVN):setStopPreset$(CARD).PROC")
+    field(LNK9, "$(DEVN):setTriggerLevel$(CARD).PROC")
+    field(LNKA, "$(DEVN):setTrigSource$(CARD).PROC")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):fwdInitGate$(CARD).PROC")
+}
+
+record (seq, "$(DEVN):fwdInitGate$(CARD)") {
+    field(DESC, "fwd gate settings")
+    field(SELM, "All")
+    field(LNK1, "$(DEVN):setGateSource$(CARD).PROC")
+    field(LNK2, "$(DEVN):setGateDelay$(CARD).PROC")
+    field(LNK3, "$(DEVN):setGateDiv$(CARD).PROC")
+    field(LNK4, "$(DEVN):setGateIgn$(CARD).PROC")
+    field(LNK5, "$(DEVN):setGateLevel$(CARD).PROC")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+####
+## RECALL PARAMETERS FROM FILE
+####
+record (calcout, "$(DEVN):chkRcl$(CARD)$") {
+    field(DESC, "check to recall card settings")
+    field(INPA, "$(DEVN):rcl CP")
+    field(OOPT, "Transition To Zero")
+    field(CALC, "A")
+    field(OUT,  "$(DEVN):rcl$(CARD).PROC")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record (bi, "$(DEVN):rcl$(CARD)") {
+    field(DESC, "recall card settings")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) rclCard($(DEVN),$(CARD)) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+####
+## CARD COMMANDS - records that are used per DelayCard
+####
+#DNAM(?) i{,s}	Name of Delay Generator Card
+record(stringin, "$(DEVN):rdDnam$(CARD)") {
+    field(DESC, "Name of Delay Gen. Card")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getStrCard(DNAM,$(CARD)) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#BRST(?) i{,k}	Burst Count
+record(longout, "$(DEVN):setBurstCount$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "burst counter")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(BRST,$(CARD)) $(P) $(A)")
+    field(LOPR, "1")
+    field(DRVL, "1")
+    field(HOPR, "2147483647")
+    field(DRVH, "2147483647")
+    field(VAL,  "1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdBurstCount$(CARD)")
+}
+
+record(longin, "$(DEVN):rdBurstCount$(CARD)") {
+    field(DESC, "burst counter")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(BRST,$(CARD)) $(P) $(A)")
+    field(LOPR, "1")
+    field(HOPR, "2147483647")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#FORC(?) i{,a}	Force Trigger
+record(ao, "$(DEVN):setForceTrig$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "time after trig. until f. trig. occurs")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setFltCard(FORC,$(CARD)) $(P) $(A)")
+    field(EGU,  "usec")
+    field(LOPR, "0")
+    field(DRVL, "0")
+    field(HOPR, "42949672")
+    field(DRVH, "42949672")
+    field(VAL,  "0")
+    field(PREC, "2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdForceTrig$(CARD)")
+}
+
+record(ai, "$(DEVN):rdForceTrig$(CARD)") {
+    field(DESC, "time after trig. until f. trig. occurs")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getFltCard(FORC,$(CARD)) $(P) $(A)")
+    field(EGU,  "usec")
+    field(LOPR, "0")
+    field(HOPR, "42949672")
+    field(PREC, "2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#GATE(?) i{,k}	Gate Source
+record(mbbo, "$(DEVN):setGateSource$(CARD)") {
+    field(DESC, "gate source")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(GATE,$(CARD))) $(P) $(A)")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(ZRST, "Gate Func. OFF")
+    field(ONST, "Positive Transistion")
+    field(TWST, "Negative Transistion")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdGateSource$(CARD)")
+}
+
+record(mbbi, "$(DEVN):rdGateSource$(CARD)") {
+    field(DESC, "gate source")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(GATE,$(CARD)) $(P) $(A)")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(ZRST, "Gate Func. OFF")
+    field(ONST, "Positive Transistion")
+    field(TWST, "Negative Transistion")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#GDEL(?) i{,a}	Gate Delay
+record(ao, "$(DEVN):setGateDelay$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "delay trig after gate trans.")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setFltCard(GDEL,$(CARD)) $(P) $(A)")
+    field(EGU,  "usec")
+    field(LOPR, "0")
+    field(DRVL, "0")
+    field(HOPR, "0.126")
+    field(DRVH, "0.126")
+    field(VAL,  "0")
+    field(PREC, "3")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdGateDelay$(CARD)")
+}
+
+record(ai, "$(DEVN):rdGateDelay$(CARD)") {
+    field(DESC, "delay trig after gate trans.")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getFltCard(GDEL,$(CARD)) $(P) $(A)")
+    field(EGU,  "usec")
+    field(LOPR, "0")
+    field(HOPR, "0.126")
+    field(PREC, "3")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#GDIV(?) i{,a}	Gate Divider
+record(longout, "$(DEVN):setGateDiv$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "number of transitions until trig.")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(GDIV,$(CARD)) $(P) $(A)")
+    field(LOPR, "1")
+    field(DRVL, "1")
+    field(HOPR, "255")
+    field(DRVH, "255")
+    field(VAL,  "1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdGateDiv$(CARD)")
+}
+
+record(longin, "$(DEVN):rdGateDiv$(CARD)") {
+    field(DESC, "number of transitions until trig.")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(GDIV,$(CARD)) $(P) $(A)")
+    field(LOPR, "1")
+    field(HOPR, "255")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#GIGN(?) i{,a}	Gate Ignore
+record(bo, "$(DEVN):setGateIgn$(CARD)") {
+    field(DESC, "gate ignore")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(GIGN,$(CARD)) $(P) $(A)")
+    field(ZNAM, "Memorize G. Trans.")
+    field(ONAM, "Discard G. Trans.")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdGateIgn$(CARD).PROC")
+}
+
+record(bi, "$(DEVN):rdGateIgn$(CARD)") {
+    field(DESC, "gate ignore")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(GIGN,$(CARD)) $(P) $(A)")
+    field(ZNAM, "Memorize G. Trans.")
+    field(ONAM, "Discard G. Trans.")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#GLVL(?) i{,a}	Gate Level
+record(ao, "$(DEVN):setGateLevel$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Threshold of the gate input circuit")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setFltCard(GLVL,$(CARD)) $(P) $(A)")
+    field(EGU,  "V")
+    field(LOPR, "-2.5")
+    field(DRVL, "-2.5")
+    field(HOPR, "2.5")
+    field(DRVH, "2.5")
+    field(VAL,  "0")
+    field(PREC, "4")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdGateLevel$(CARD)")
+}
+
+record(ai, "$(DEVN):rdGateLevel$(CARD)") {
+    field(DESC, "Threshold of the gate input circuit")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getFltCard(GLVL,$(CARD)) $(P) $(A)")
+    field(EGU,  "V")
+    field(LOPR, "-2.5")
+    field(HOPR, "2.5")
+    field(PREC, "4")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#INHB(?) i{,a}	Inhb Trigger
+record(ao, "$(DEVN):setTrigInhb$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Dead Time of trig. after valid trig.")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setFltCard(INHB,$(CARD)) $(P) $(A)")
+    field(EGU,  "usec")
+    field(LOPR, "0")
+    field(DRVL, "0")
+    field(HOPR, "42949672")
+    field(DRVH, "42949672")
+    field(VAL,  "0")
+    field(PREC, "2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdTrigInhb$(CARD)")
+}
+
+record(ai, "$(DEVN):rdTrigInhb$(CARD)") {
+    field(DESC, "Dead Time of trig. after valid trig.")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getFltCard(INHB,$(CARD)) $(P) $(A)")
+    field(EGU,  "usec")
+    field(LOPR, "0")
+    field(HOPR, "42949672")
+    field(PREC, "2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#INHC(?) i{,h}	Set or query Inhibit Trigger Signal
+record(longout, "$(DEVN):setInhbTrig$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Trigger Signal Register")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(INHC,$(CARD)) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdInhbTrig$(CARD)")
+}
+
+record(longin, "$(DEVN):rdInhbTrig$(CARD)") {
+    field(DESC, "Trigger Signal Register")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(INHC,$(CARD)) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(mbbiDirect, "$(DEVN):rdInhbTrigLo$(CARD)") {
+    field(DESC, "Trigger Signal Register Low 16 bit")
+    field(DTYP, "Raw Soft Channel")
+    field(INP,  "$(DEVN):rdInhbTrig$(CARD) CP")
+    field(NOBT, "16")
+    field(SHFT, "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(mbbiDirect, "$(DEVN):rdInhbTrigHi$(CARD)") {
+    field(DESC, "Trigger Signal Register High 16 bit")
+    field(DTYP, "Raw Soft Channel")
+    field(INP,  "$(DEVN):rdInhbTrig$(CARD) CP")
+    field(NOBT, "16")
+    field(SHFT, "16")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+# unused? INHC should be enough for this
+#INHH(?) i{,h}	Set Bits of the Inhb Trigger Signal
+#INHL(?) i{,h}	Reset Bits of the Inhb Trigger Signal
+
+#INHS(?) i{,k}	Stepback Parameter
+record(longout, "$(DEVN):setStepBack$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Stepback Parameter")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(INHS,$(CARD)) $(P) $(A)")
+    field(LOPR, "0")
+    field(DRVL, "0")
+    field(HOPR, "2147483647")
+    field(DRVH, "2147483647")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdStepBack$(CARD)")
+}
+
+record(longin, "$(DEVN):rdStepBack$(CARD)") {
+    field(DESC, "Stepback Parameter")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(INHS,$(CARD)) $(P) $(A)")
+    field(LOPR, "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#PRES(?) i{,k}	Preset Number
+# note: should be 64bit integer
+record(longout, "$(DEVN):setPreset$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "set PRES flag after # trig. events")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(PRES,$(CARD)) $(P) $(A)")
+    field(LOPR, "0")
+    field(DRVL, "0")
+    field(HOPR, "2147483647")
+    field(DRVH, "2147483647")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdPreset$(CARD)")
+}
+
+# note: should be 64bit integer
+record(longin, "$(DEVN):rdPreset$(CARD)") {
+    field(DESC, "set PRES flag after # trig. events")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(PRES,$(CARD)) $(P) $(A)")
+    field(LOPR, "0")
+    field(HOPR, "2147483647")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#STBK(?) i{,a}	StepBack Time
+record(ao, "$(DEVN):setStepBackTime$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "time after trig until list stepback")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setFltCard(STBK,$(CARD)) $(P) $(A)")
+    field(EGU,  "usec")
+    field(LOPR, "0")
+    field(DRVL, "0")
+    field(HOPR, "42949672")
+    field(DRVH, "42949672")
+    field(VAL,  "0")
+    field(PREC, "2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdStepBackTime$(CARD)")
+}
+
+record(ai, "$(DEVN):rdStepBackTime$(CARD)") {
+    field(DESC, "time after trig until list stepback")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getFltCard(STBK,$(CARD)) $(P) $(A)")
+    field(EGU,  "usec")
+    field(LOPR, "0")
+    field(HOPR, "42949672")
+    field(PREC, "2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#STPR(?) i{,k}	Stop on Preset Flag
+record(bo, "$(DEVN):setStopPreset$(CARD)") {
+    field(DESC, "disable trig. after PRES trig. events")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(STPR,$(CARD)) $(P) $(A)")
+    field(ZNAM, "Not Active")
+    field(ONAM, "Active")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdStopPreset$(CARD).PROC")
+}
+
+record(bi, "$(DEVN):rdStopPreset$(CARD)") {
+    field(DESC, "disable trig. after PRES trig. events")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(STPR,$(CARD)) $(P) $(A)")
+    field(ZNAM, "Not Active")
+    field(ONAM, "Active")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#TLVL(?) i{,a}	Trigger Level
+record(ao, "$(DEVN):setTriggerLevel$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Threshold of the trig. input circuit")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setFltCard(TLVL,$(CARD)) $(P) $(A)")
+    field(EGU,  "V")
+    field(LOPR, "-2.5")
+    field(DRVL, "-2.5")
+    field(HOPR, "2.5")
+    field(DRVH, "2.5")
+    field(VAL,  "0")
+    field(PREC, "4")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdTriggerLevel$(CARD)")
+}
+
+record(ai, "$(DEVN):rdTriggerLevel$(CARD)") {
+    field(DESC, "Threshold of the trig. input circuit")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getFltCard(TLVL,$(CARD)) $(P) $(A)")
+    field(EGU,  "V")
+    field(LOPR, "-2.5")
+    field(HOPR, "2.5")
+    field(PREC, "4")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#TSRC(?) i{,k}	Trigger Source
+record(mbbo, "$(DEVN):setTrigSource$(CARD)") {
+    field(DESC, "trigger source")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(TSRC,$(CARD))) $(P) $(A)")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(ZRST, "Internal Trigger")
+    field(ONST, "Ext. Rising Edge")
+    field(TWST, "Ext. Falling Edge")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdTrigSource$(CARD)")
+}
+
+record(mbbi, "$(DEVN):rdTrigSource$(CARD)") {
+    field(DESC, "trigger source")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(TSRC,$(CARD)) $(P) $(A)")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(ZRST, "Internal Trigger")
+    field(ONST, "Ext. Rising Edge")
+    field(TWST, "Ext. Falling Edge")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}

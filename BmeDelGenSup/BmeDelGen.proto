@@ -1,0 +1,130 @@
+##########################################################################
+# Copyright (c) 2017 Helmholtz-Zentrum Berlin für Materialien            #
+#                    und Energie GmbH, Germany (HZB)                     #
+# This program is free software: you can redistribute it and/or modify   #
+# it under the terms of the GNU General Public License as published by   #
+# the Free Software Foundation, either version 3 of the License, or      #
+# (at your option) any later version.                                    #
+#                                                                        #
+# This program is distributed in the hope that it will be useful,        #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          #
+# GNU General Public License for more details.                           #
+#                                                                        #
+# You should have received a copy of the GNU General Public License      #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>. #
+##########################################################################
+
+@writetimeout { disconnect; connect 5000;}
+@replytimeout { disconnect; connect 5000;}
+@readtimeout  { disconnect; connect 5000;}
+@mismatch  { disconnect; connect 5000;}
+
+LockTimeout = 7500;
+WriteTimeout = 1000;
+ReplyTimeout = 5000;
+ReadTimeout = 1000;
+OutTerminator = "\r\n";
+InTerminator = "\r\n";
+
+####
+## GENERAL
+####
+cmd { out "\$1";}
+setDec { out "\$1 %d"; }
+getDec { out "\$1?"; in "%d"; ExtraInput = Ignore; }
+setHex { out "\$1 %x"; }
+getHex { out "\$1?"; in "%x"; ExtraInput = Ignore; }
+setFlt { out "\$1 %f"; }
+getFlt { out "\$1?"; in "%f"; ExtraInput = Ignore; }
+
+setDecChan { out "\$1 \$2,\$3,%d"; }
+getDecChan { out "\$1? \$2,\$3"; in "%d"; ExtraInput = Ignore; }
+setHexChan { out "\$1 \$2,\$3,%x"; }
+getHexChan { out "\$1? \$2,\$3"; in "%x"; ExtraInput = Ignore; }
+setFltChan { out "\$1 \$2,\$3,%f"; }
+getFltChan { out "\$1? \$2,\$3"; in "%f"; ExtraInput = Ignore; }
+setStrChan { out "\$1 \$2,\$3,%s"; }
+getStrChan { out "\$1? \$2,\$3"; in "%#s"; ExtraInput = Ignore; }
+
+setDecCard { out "\$1 \$2,%d"; }
+getDecCard { out "\$1? \$2"; in "%d"; ExtraInput = Ignore; }
+setHexCard { out "\$1 \$2,%x"; }
+getHexCard { out "\$1? \$2"; in "%x"; ExtraInput = Ignore; }
+setFltCard { out "\$1 \$2,%f"; }
+getFltCard { out "\$1? \$2"; in "%f"; ExtraInput = Ignore; }
+setStrCard { out "\$1 \$2,%s"; }
+getStrCard { out "\$1? \$2"; in "%#s"; ExtraInput = Ignore; }
+
+####
+## COMMON
+####
+getIDN {out "*IDN?"; in "%\$1[^\r\n]"; ExtraInput = Ignore;}
+selfTest {out "*TST?"; in "%\$1[^\r\n]"; ExtraInput = Ignore;}
+lock { out "\$1 %d,\$2"; }
+
+rcl {
+    CFGIDX="\$1";
+    out "*RCL %("$CFGIDX".VAL)d";
+}
+
+sav {
+    CFGIDX="\$1";
+    out "*SAV %("$CFGIDX".VAL)d";
+}
+
+# recall parameters of one channel, useful after *RCL
+rclChan {
+    DEVN="\$1";
+    CARD="\$2";
+    CHAN="\$3";
+    LINK="\$4";
+    out "DLAM? "$CARD","$CHAN""; in "%("$DEVN":setModCount"$CARD""$CHAN".VAL)d";
+    out "DLAO? "$CARD","$CHAN""; in "%("$DEVN":setModOff"$CARD""$CHAN".VAL)d";
+    out "DLAS? "$CARD","$CHAN""; in "%("$DEVN":setStepBack"$CARD""$CHAN".VAL)d";
+    out "DLAW? "$CARD","$CHAN""; in "%("$DEVN":setPulseWidth"$CARD""$CHAN".VAL)f";
+    out "DLAY? "$CARD","$CHAN""; in "%("$DEVN":setDelay"$CARD""$CHAN".VAL)s";
+    out "LINK? "$CARD","$LINK""; in "%("$DEVN":selLink"$CARD""$LINK".VAL)s";
+    out "DLAC? "$CARD","$CHAN""; in "%("$DEVN":setGo"$CARD""$CHAN".VAL)d";
+}
+
+# recall parameters of one card, useful after *RCL
+rclCard {
+    DEVN="\$1";
+    CARD="\$2";
+    out "BRST? "$CARD""; in "%("$DEVN":setBurstCount"$CARD".VAL)d";
+    out "FORC? "$CARD""; in "%("$DEVN":setForceTrig"$CARD".VAL)f";
+    out "INHB? "$CARD""; in "%("$DEVN":setTrigInhb"$CARD".VAL)f";
+    out "INHC? "$CARD""; in "%("$DEVN":setInhbTrig"$CARD".VAL)d";
+    out "INHS? "$CARD""; in "%("$DEVN":setStepBack"$CARD".VAL)d";
+    out "PRES? "$CARD""; in "%("$DEVN":setPreset"$CARD".VAL)d";
+    out "STBK? "$CARD""; in "%("$DEVN":setStepBackTime"$CARD".VAL)f";
+    out "STPR? "$CARD""; in "%("$DEVN":setStopPreset"$CARD".VAL)d";
+    out "TLVL? "$CARD""; in "%("$DEVN":setTriggerLevel"$CARD".VAL)f";
+    out "TSRC? "$CARD""; in "%("$DEVN":setTrigSource"$CARD".VAL)d";
+    out "GATE? "$CARD""; in "%("$DEVN":setGateSource"$CARD".VAL)d";
+    out "GDEL? "$CARD""; in "%("$DEVN":setGateDelay"$CARD".VAL)f";
+    out "GDIV? "$CARD""; in "%("$DEVN":setGateDiv"$CARD".VAL)d";
+    out "GIGN? "$CARD""; in "%("$DEVN":setGateIgn"$CARD".VAL)d";
+    out "GLVL? "$CARD""; in "%("$DEVN":setGateLevel"$CARD".VAL)f";
+}
+
+####
+## ERROR QUEUE
+####
+getSystErrNxt {out "ERRN?";in '%255[^"]';}
+getSystErrCnt {out "ERRC?";in "%d";}
+
+
+####
+## DEBUGING
+####
+# Connect a stringout record to this to get a generic command interface.
+# After processing finishes, the record contains the reply.
+debugCmd {
+    out "%#s";
+}
+
+debugRbk {
+    in "%#s";
+}

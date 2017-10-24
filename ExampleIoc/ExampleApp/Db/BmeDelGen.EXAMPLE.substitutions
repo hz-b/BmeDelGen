@@ -1,0 +1,74 @@
+##########################################################################
+# Copyright (c) 2017 Helmholtz-Zentrum Berlin für Materialien            #
+#                    und Energie GmbH, Germany (HZB)                     #
+# This program is free software: you can redistribute it and/or modify   #
+# it under the terms of the GNU General Public License as published by   #
+# the Free Software Foundation, either version 3 of the License, or      #
+# (at your option) any later version.                                    #
+#                                                                        #
+# This program is distributed in the hope that it will be useful,        #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          #
+# GNU General Public License for more details.                           #
+#                                                                        #
+# You should have received a copy of the GNU General Public License      #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>. #
+##########################################################################
+
+# Used for Database
+global 
+{
+    APP_NAME=ExampleApp
+    DEVN=EXAMPLE
+    P=EXAMPLE
+    A=-1
+}
+
+file BmeDelGenMain.template 
+{
+pattern { PROTO, START_DISABLED }
+  { BmeDelGen.proto, 0 }
+}
+
+file BmeDelGenScpi.template 
+{
+pattern { PROTO, START_DISABLED }
+   { BmeDelGen.proto, 0 }
+}
+
+file BmeDelGenChan.template 
+{
+pattern { PROTO, CARD, CHAN, LINK }
+  { BmeDelGen.proto, 1, A, AB }
+  { BmeDelGen.proto, 1, B, AB }
+  { BmeDelGen.proto, 1, C, CD }
+  { BmeDelGen.proto, 1, D, CD }
+  { BmeDelGen.proto, 1, E, EF }
+  { BmeDelGen.proto, 1, F, EF }
+  { BmeDelGen.proto, 2, A, AB }
+  { BmeDelGen.proto, 2, B, AB }
+  { BmeDelGen.proto, 2, C, CD }
+  { BmeDelGen.proto, 2, D, CD }
+  { BmeDelGen.proto, 2, E, EF }
+  { BmeDelGen.proto, 2, F, EF }
+}
+
+file BmeDelGenCard.template 
+{
+pattern { PROTO, CARD}
+  { BmeDelGen.proto, 1 }
+  { BmeDelGen.proto, 2 }
+}
+
+# Error History templates come from APPS_STREAMTEMPLATESANDPROTOCOLS support module
+file ErrHistScpi.template 
+{
+pattern { PROTO }
+   { BmeDelGen.proto }
+}
+
+file ErrHistBufWave.template 
+{
+pattern { INPSTR, INPNUM, BUFLEN }
+   { "EXAMPLE:systErrStr NPP NMS", "EXAMPLE:systErrNum NPP NMS",19 }
+}

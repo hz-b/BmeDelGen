@@ -1,0 +1,10 @@
+{
+    "alias": [
+        "BASE:EPICS_BASE"
+    ],
+    "module": [
+        "ASYN:R4-30-bessy1",
+        "BASE:R3-14-12-2-6",
+        "STREAMDEVICE:R2-7-7-bessy1"
+    ]
+}

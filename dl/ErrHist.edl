@@ -1,0 +1,2347 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 63
+y 336
+w 630
+h 610
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+title "$(APP_NAME)"
+showGrid
+disableScroll
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 630
+h 30
+lineColor index 24
+fill
+fillColor index 24
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 0
+w 630
+h 27
+font "helvetica-medium-r-24.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 24
+value {
+  "$(DEVN)"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 0
+y 30
+w 630
+h 10
+controlPv "$(DEVN):rdIdn"
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 34
+useDisplayBg
+limitsFromDb
+nullColor index 32
+useHexPrefix
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 2
+y 4
+w 105
+h 25
+font "helvetica-medium-r-10.0"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "Schroeder 2015/11/19"
+  "$(APP_NAME)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 40
+w 630
+h 30
+font "helvetica-medium-r-24.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "Error History"
+}
+border
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 99
+w 50
+h 20
+controlPv "$(DEVN):errBufNum0"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 124
+w 50
+h 20
+controlPv "$(DEVN):errBufNum1"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 299
+w 50
+h 20
+controlPv "$(DEVN):errBufNum8"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 274
+w 50
+h 20
+controlPv "$(DEVN):errBufNum7"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 249
+w 50
+h 20
+controlPv "$(DEVN):errBufNum6"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 224
+w 50
+h 20
+controlPv "$(DEVN):errBufNum5"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 149
+w 50
+h 20
+controlPv "$(DEVN):errBufNum2"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 174
+w 50
+h 20
+controlPv "$(DEVN):errBufNum3"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 199
+w 50
+h 20
+controlPv "$(DEVN):errBufNum4"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 349
+w 50
+h 20
+controlPv "$(DEVN):errBufNum10"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 324
+w 50
+h 20
+controlPv "$(DEVN):errBufNum9"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 374
+w 50
+h 20
+controlPv "$(DEVN):errBufNum11"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 574
+w 50
+h 20
+controlPv "$(DEVN):errBufNum19"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 549
+w 50
+h 20
+controlPv "$(DEVN):errBufNum18"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 524
+w 50
+h 20
+controlPv "$(DEVN):errBufNum17"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 499
+w 50
+h 20
+controlPv "$(DEVN):errBufNum16"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 474
+w 50
+h 20
+controlPv "$(DEVN):errBufNum15"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 399
+w 50
+h 20
+controlPv "$(DEVN):errBufNum12"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 424
+w 50
+h 20
+controlPv "$(DEVN):errBufNum13"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 10
+y 449
+w 50
+h 20
+controlPv "$(DEVN):errBufNum14"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 74
+w 50
+h 20
+controlPv "$(DEVN):softErrCnt"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 20
+bgColor index 2
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 9
+y 74
+w 49
+h 21
+font "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 50
+useDisplayBg
+value {
+  "Errors"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 201
+y 74
+w 131
+h 20
+
+beginGroup
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 272
+y 74
+w 60
+h 20
+controlPv "SYSCC:time"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 201
+y 74
+w 67
+h 20
+controlPv "SYSCC:dateISO"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 125
+y 75
+w 60
+h 20
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 8
+botShadowColor index 14
+controlPv "$(DEVN):rstErrCnt.PROC"
+pressValue "0"
+onLabel "RESET"
+offLabel "RESET"
+3d
+font "helvetica-medium-r-14.0"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 574
+w 420
+h 20
+controlPv "$(DEVN):errBufStr19"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 549
+w 420
+h 20
+controlPv "$(DEVN):errBufStr18"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 524
+w 420
+h 20
+controlPv "$(DEVN):errBufStr17"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 499
+w 420
+h 20
+controlPv "$(DEVN):errBufStr16"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 474
+w 420
+h 20
+controlPv "$(DEVN):errBufStr15"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 449
+w 420
+h 20
+controlPv "$(DEVN):errBufStr14"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 424
+w 420
+h 20
+controlPv "$(DEVN):errBufStr13"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 399
+w 420
+h 20
+controlPv "$(DEVN):errBufStr12"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 374
+w 420
+h 20
+controlPv "$(DEVN):errBufStr11"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 349
+w 420
+h 20
+controlPv "$(DEVN):errBufStr10"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 324
+w 420
+h 20
+controlPv "$(DEVN):errBufStr9"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 299
+w 420
+h 20
+controlPv "$(DEVN):errBufStr8"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 274
+w 420
+h 20
+controlPv "$(DEVN):errBufStr7"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 249
+w 420
+h 20
+controlPv "$(DEVN):errBufStr6"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 224
+w 420
+h 20
+controlPv "$(DEVN):errBufStr5"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 199
+w 420
+h 20
+controlPv "$(DEVN):errBufStr4"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 174
+w 420
+h 20
+controlPv "$(DEVN):errBufStr3"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 149
+w 420
+h 20
+controlPv "$(DEVN):errBufStr2"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 124
+w 420
+h 20
+controlPv "$(DEVN):errBufStr1"
+format "string"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 205
+y 99
+w 420
+h 20
+controlPv "$(DEVN):errBufStr0"
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 1
+motifWidget
+precision 2
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 99
+w 60
+h 20
+controlPv "$(DEVN):errBufTime0"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 124
+w 60
+h 20
+controlPv "$(DEVN):errBufTime1"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 149
+w 60
+h 20
+controlPv "$(DEVN):errBufTime2"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 174
+w 60
+h 20
+controlPv "$(DEVN):errBufTime3"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 199
+w 60
+h 20
+controlPv "$(DEVN):errBufTime4"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 224
+w 60
+h 20
+controlPv "$(DEVN):errBufTime5"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 249
+w 60
+h 20
+controlPv "$(DEVN):errBufTime6"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 274
+w 60
+h 20
+controlPv "$(DEVN):errBufTime7"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 299
+w 60
+h 20
+controlPv "$(DEVN):errBufTime8"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 324
+w 60
+h 20
+controlPv "$(DEVN):errBufTime9"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 349
+w 60
+h 20
+controlPv "$(DEVN):errBufTime10"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 372
+w 60
+h 20
+controlPv "$(DEVN):errBufTime11"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 399
+w 60
+h 20
+controlPv "$(DEVN):errBufTime12"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 424
+w 60
+h 20
+controlPv "$(DEVN):errBufTime13"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 449
+w 60
+h 20
+controlPv "$(DEVN):errBufTime14"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 474
+w 60
+h 20
+controlPv "$(DEVN):errBufTime15"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 499
+w 60
+h 20
+controlPv "$(DEVN):errBufTime16"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 524
+w 60
+h 20
+controlPv "$(DEVN):errBufTime17"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 549
+w 60
+h 20
+controlPv "$(DEVN):errBufTime18"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 140
+y 574
+w 60
+h 20
+controlPv "$(DEVN):errBufTime19"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 574
+w 70
+h 20
+controlPv "$(DEVN):errBufDate19"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 549
+w 70
+h 20
+controlPv "$(DEVN):errBufDate18"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 524
+w 70
+h 20
+controlPv "$(DEVN):errBufDate17"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 499
+w 70
+h 20
+controlPv "$(DEVN):errBufDate16"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 474
+w 70
+h 20
+controlPv "$(DEVN):errBufDate15"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 449
+w 70
+h 20
+controlPv "$(DEVN):errBufDate14"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 424
+w 70
+h 20
+controlPv "$(DEVN):errBufDate13"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 399
+w 70
+h 20
+controlPv "$(DEVN):errBufDate12"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 372
+w 70
+h 20
+controlPv "$(DEVN):errBufDate11"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 349
+w 70
+h 20
+controlPv "$(DEVN):errBufDate10"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 324
+w 70
+h 20
+controlPv "$(DEVN):errBufDate9"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 299
+w 70
+h 20
+controlPv "$(DEVN):errBufDate8"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 274
+w 70
+h 20
+controlPv "$(DEVN):errBufDate7"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 249
+w 70
+h 20
+controlPv "$(DEVN):errBufDate6"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 224
+w 70
+h 20
+controlPv "$(DEVN):errBufDate5"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 199
+w 70
+h 20
+controlPv "$(DEVN):errBufDate4"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+id "7"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 174
+w 70
+h 20
+controlPv "$(DEVN):errBufDate3"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 149
+w 70
+h 20
+controlPv "$(DEVN):errBufDate2"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 124
+w 70
+h 20
+controlPv "$(DEVN):errBufDate1"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 66
+y 99
+w 70
+h 20
+controlPv "$(DEVN):errBufDate0"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+motifWidget
+nullColor index 32
+smartRefresh
+changeValOnLoseFocus
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+

@@ -1,0 +1,1800 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 1023
+y 850
+w 600
+h 100
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-12.0"
+btnFont "helvetica-bold-r-14.0"
+fgColor index 0
+bgColor index 3
+textColor index 0
+ctlFgColor1 index 1
+ctlFgColor2 index 7
+ctlBgColor1 index 19
+ctlBgColor2 index 21
+topShadowColor index 2
+botShadowColor index 0
+endScreenProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 0
+w 600
+h 15
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 24
+value {
+  "$(DEVN)"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 0
+y 15
+w 600
+h 14
+controlPv "$(DEVN):rdIdn"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 24
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 5
+y 35
+w 83
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Start by Local"
+  "Prim. Sec. Force."
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 2
+y 2
+w 120
+h 15
+font "helvetica-bold-r-10.0"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "CARD: $(CARD)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 90
+y 2
+w 120
+h 15
+font "helvetica-bold-r-10.0"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "CHANNEL: $(CHAN)"
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 11
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).B0"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 37
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 37
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 38
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).B1"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 64
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 64
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 65
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).B2"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 95
+y 35
+w 83
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Start by Master"
+  "Prim. Sec. Force."
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 101
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).B4"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 127
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 127
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 128
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).B5"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 154
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 154
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 155
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).B6"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 480
+y 2
+w 120
+h 25
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "Schroeder 2017/08/14"
+  "$(APP_NAME)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 390
+y 35
+w 32
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Stepb."
+  "Bus"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 180
+y 35
+w 38
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "System"
+  "Clock"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 190
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 190
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 191
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).B7"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 220
+y 35
+w 28
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Delay"
+  "Clock"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 225
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 225
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 226
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).B8"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 325
+y 35
+w 25
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Start"
+  "Bus"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 330
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 330
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 331
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).BB"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 360
+y 35
+w 32
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Stepb."
+  "Local"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 365
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 365
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 366
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).BC"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 400
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 400
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 401
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).BD"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 430
+y 35
+w 29
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Run"
+  "Circle"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 436
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).BE"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 465
+y 35
+w 34
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Sync"
+  "Reload"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 470
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 470
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 471
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).BF"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 500
+y 35
+w 25
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "From"
+  "E"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 505
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 505
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 506
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoHi$(CARD)$(CHAN).B0"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 535
+y 35
+w 25
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "From"
+  "F"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 540
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 540
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 541
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoHi$(CARD)$(CHAN).B1"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 570
+y 35
+w 25
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "From"
+  "Bus"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 575
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 575
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 576
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoHi$(CARD)$(CHAN).B2"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 255
+y 35
+w 31
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Inhibit"
+  "Local"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 261
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).B9"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 290
+y 35
+w 26
+h 24
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Start"
+  "Local"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 295
+y 80
+w 10
+h 10
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 295
+y 80
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 296
+y 81
+w 8
+h 8
+lineColor index 15
+fill
+fillColor index 15
+lineWidth 0
+visPv "$(DEVN):rdGoLo$(CARD)$(CHAN).BA"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 4
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 127
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 5
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 154
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 6
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 295
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 10
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 330
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 11
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 365
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 12
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 190
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 7
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 8
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 260
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 9
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 505
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 16
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 17
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 575
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 18
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 400
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 13
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 14
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 470
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 15
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 0
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 37
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 1
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 64
+y 60
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):setGo$(CARD)$(CHAN)"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+controlBitPos 2
+endObjectProperties
+

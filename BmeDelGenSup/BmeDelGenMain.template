@@ -1,0 +1,187 @@
+##########################################################################
+# Copyright (c) 2017 Helmholtz-Zentrum Berlin für Materialien            #
+#                    und Energie GmbH, Germany (HZB)                     #
+# This program is free software: you can redistribute it and/or modify   #
+# it under the terms of the GNU General Public License as published by   #
+# the Free Software Foundation, either version 3 of the License, or      #
+# (at your option) any later version.                                    #
+#                                                                        #
+# This program is distributed in the hope that it will be useful,        #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          #
+# GNU General Public License for more details.                           #
+#                                                                        #
+# You should have received a copy of the GNU General Public License      #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>. #
+##########################################################################
+
+####
+## MAIN - general templates and commands used per BME DelaySystem which can have one or more DelayCards (typically 2)
+####
+
+####
+## COMMON
+####
+record (bo, "$(DEVN):aply") {
+    field(DESC, "apply settings")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) cmd(APLY) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record (bo, "$(DEVN):rcl") {
+    field(DESC, "recall settings")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):cmdRcl")
+}
+
+record (calcout, "$(DEVN):cmdRcl") {
+    field(DESC, "recall settings")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) rcl($(DEVN):cfgIdx) $(P) $(A)")
+    field(INPA, "$(DEVN):rcl")
+    field(OOPT, "Transition To Non-zero")
+    field(CALC, "A")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record (bo, "$(DEVN):sav") {
+    field(DESC, "save settings")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) sav($(DEVN):cfgIdx) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(longin, "$(DEVN):cfgIdx") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "index of config for sav and rcl")
+    field(LOPR, "1")
+    field(HOPR, "99")
+    field(VAL,  "1")
+    field(PINI, "YES")
+}
+
+record (bo, "$(DEVN):setActv") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "(de)activate del. generators")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDec(ACTV) $(P) $(A)")
+    field(VAL,  "1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdActv.PROC")
+}
+
+record (bi, "$(DEVN):rdActv") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "activate status del .generators")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDec(ACTV) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record (bo, "$(DEVN):setLock") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "force lock local menus")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) lock(LOCK,1) $(P) $(A)")
+    field(VAL,  "1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdLock.PROC")
+}
+
+record (bi, "$(DEVN):rdLock") {
+    field(DESC, "lock status local menus")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDec(LOCK) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+####
+## SCAN ROUTINE
+####
+# cyclic scanning
+record (seq, "$(DEVN):fwdUpd") {
+    field(DESC, "scan routine")
+    field(SELM, "All")
+    field(LNK1, "$(DEVN):rdStb.PROC")
+    field(LNK2, "$(DEVN):rdEsr.PROC")
+    field(SCAN, ".5 second")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):chkStatus.PROC")
+}
+
+record(seq, "$(DEVN):chkStatus") {
+    field(DESC, "check status register")
+    field(SELM, "All")
+    field(LNK1, "$(DEVN):chkErrMsg.PROC")
+    field(LNK2, "$(DEVN):chkPon.PROC")
+    field(LNK3, "$(DEVN):rdLock.PROC")
+    field(LNK4, "$(DEVN):rdActv.PROC")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+#    field(FLNK, "$(DEVN):fwdScan.PROC")
+}
+
+# check Power on - done in chan and card templates now
+record (calcout, "$(DEVN):chkPon") {
+    field(DESC, "init device after power on")
+    field(INPA, "$(DEVN):rdEsr.B7 NPP")
+    field(OOPT, "When Non-zero")
+    field(CALC, "A")
+    field(OUT,  "$(DEVN):init.PROC")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(seq, "$(DEVN):init") {
+    field(DESC, "init after power on")
+    field(SELM, "All")
+    field(LNK1, "$(DEVN):setLock.PROC")
+    field(LNK2, "$(DEVN):setActv.PROC")
+    field(PINI, "YES")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+####
+## DEBUGING
+####
+# send arbitrary commands to device
+# trigger readback
+record(stringout, "$(DEVN):debug:cmdStr") {
+    field(DESC, "debug interface to send test commands")
+    field(DTYP, "stream")
+    field(OUT, "@$(PROTO) debugCmd $(P) $(A)")
+#    field(FLNK, "$(DEVN):debug:rbkStr.PROC")
+}
+
+# readback (if any) from debug cmd
+# trigger readout of potential caused system errors
+record(waveform, "$(DEVN):debug:rbkStr") {
+    field(DESC, "debug readback")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) debugRbk $(P) $(A)")
+    field(FTVL, "CHAR")
+    field(NELM, "2048")
+}

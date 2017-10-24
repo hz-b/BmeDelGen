@@ -1,0 +1,708 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 587
+y 793
+w 600
+h 140
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-12.0"
+btnFont "helvetica-bold-r-14.0"
+fgColor index 0
+bgColor index 3
+textColor index 0
+ctlFgColor1 index 1
+ctlFgColor2 index 7
+ctlBgColor1 index 19
+ctlBgColor2 index 21
+topShadowColor index 2
+botShadowColor index 0
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 55
+w 590
+h 80
+lineColor index 14
+fillColor index 19
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 0
+w 600
+h 25
+font "helvetica-bold-r-18.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 24
+value {
+  "$(DEVN)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 480
+y 2
+w 120
+h 25
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "Schroeder 2017/08/14"
+  "$(APP_NAME)"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 0
+y 25
+w 600
+h 12
+controlPv "$(DEVN):rdIdn"
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 24
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 0
+y 37
+w 600
+h 12
+controlPv "$(DEVN):rdTst"
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 24
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 60
+w 80
+h 20
+fgColor index 14
+onColor index 20
+offColor index 15
+inconsistentColor index 2
+topShadowColor index 1
+botShadowColor index 6
+controlPv "$(DEVN):disable"
+onLabel "Disabled"
+offLabel "Enabled"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 95
+y 60
+w 80
+h 20
+fgColor index 14
+bgColor index 32
+topShadowColor index 1
+botShadowColor index 7
+font "helvetica-bold-r-10.0"
+xPosOffset 20
+yPosOffset 20
+buttonLabel "Asyn"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "asynRecord.edl"
+}
+menuLabel {
+  0 "Asyn Record"
+}
+setPosition {
+  0 "parentWindow"
+}
+symbols {
+  0 "P=$(DEVN):,R=asyn,ADDR=-1,OMAX=0,IMAX=0"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 180
+y 60
+w 80
+h 20
+fgColor index 14
+bgColor index 32
+topShadowColor index 1
+botShadowColor index 7
+font "helvetica-bold-r-10.0"
+buttonLabel "Error History"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "ErrHist.edl"
+}
+menuLabel {
+  0 "Error History"
+}
+symbols {
+  0 "DEVN=$(DEVN),APP_NAME=$(APP_NAME)"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 265
+y 60
+w 80
+h 20
+fgColor index 14
+onColor index 32
+offColor index 32
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):aply"
+pressValue "1"
+onLabel "APPLY"
+offLabel "APPLY"
+3d
+useEnumNumeric
+font "helvetica-bold-r-10.0"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 60
+w 230
+h 20
+
+beginGroup
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 490
+y 60
+w 100
+h 20
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 490
+y 61
+w 70
+h 16
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+value {
+  "New Error.:"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 570
+y 60
+w 20
+h 20
+
+beginGroup
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 570
+y 60
+w 20
+h 20
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 571
+y 61
+w 18
+h 18
+lineColor index 20
+fill
+fillColor index 20
+visPv "$(DEVN):softErrCnt"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 60
+w 170
+h 15
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 360
+y 60
+w 120
+h 15
+font "helvetica-bold-r-14.0"
+fontAlign "center"
+fgColor index 15
+bgColor index 9
+visPv "$(DEVN):asyn.CNCT"
+visInvert
+visMin "0"
+visMax "1"
+value {
+  "CONNECTED"
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 60
+w 120
+h 15
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 360
+y 60
+w 120
+h 15
+font "helvetica-bold-r-14.0"
+fontAlign "center"
+fgColor index 20
+bgColor index 9
+visPv "$(DEVN):asyn.CNCT"
+visMin "0"
+visMax "1"
+value {
+  "DISCONNECTED"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 400
+y 110
+w 80
+h 20
+fgColor index 14
+onColor index 15
+offColor index 20
+inconsistentColor index 2
+topShadowColor index 1
+botShadowColor index 6
+controlPv "$(DEVN):setActv"
+onLabel "Activated"
+offLabel "Deactivated"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 400
+y 85
+w 80
+h 20
+fgColor index 14
+onColor index 32
+offColor index 32
+inconsistentColor index 2
+topShadowColor index 1
+botShadowColor index 6
+controlPv "$(DEVN):setLock"
+onLabel "LOCKED"
+offLabel "UNLOCKED"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 490
+y 111
+w 65
+h 16
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+value {
+  "Activated:"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 570
+y 110
+w 20
+h 20
+
+beginGroup
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 570
+y 110
+w 20
+h 20
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 571
+y 111
+w 18
+h 18
+lineColor index 15
+fill
+fillColor index 15
+visPv "$(DEVN):rdActv"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 490
+y 86
+w 50
+h 16
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+value {
+  "Locked:"
+}
+autoSize
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 570
+y 85
+w 20
+h 20
+
+beginGroup
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 570
+y 85
+w 20
+h 20
+lineColor index 14
+fill
+fillColor index 8
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 571
+y 86
+w 18
+h 18
+lineColor index 15
+fill
+fillColor index 15
+visPv "$(DEVN):rdLock"
+visInvert
+visMin "0"
+visMax "1"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 180
+y 85
+w 80
+h 20
+fgColor index 14
+onColor index 32
+offColor index 32
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):rcl"
+pressValue "1"
+releaseValue "0"
+onLabel "RECALL SET."
+offLabel "RECALL SET."
+3d
+useEnumNumeric
+font "helvetica-bold-r-10.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 95
+y 85
+w 80
+h 20
+fgColor index 14
+onColor index 32
+offColor index 32
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):sav"
+pressValue "1"
+onLabel "SAVE SET."
+offLabel "SAVE SET."
+3d
+useEnumNumeric
+font "helvetica-bold-r-10.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 315
+y 85
+w 30
+h 14
+controlPv "$(DEVN):cfgIdx"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 32
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 265
+y 85
+w 45
+h 12
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Cfg. Idx.:"
+}
+autoSize
+endObjectProperties
+

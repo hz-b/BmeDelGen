@@ -1,0 +1,901 @@
+##########################################################################
+# Copyright (c) 2017 Helmholtz-Zentrum Berlin für Materialien            #
+#                    und Energie GmbH, Germany (HZB)                     #
+# This program is free software: you can redistribute it and/or modify   #
+# it under the terms of the GNU General Public License as published by   #
+# the Free Software Foundation, either version 3 of the License, or      #
+# (at your option) any later version.                                    #
+#                                                                        #
+# This program is distributed in the hope that it will be useful,        #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          #
+# GNU General Public License for more details.                           #
+#                                                                        #
+# You should have received a copy of the GNU General Public License      #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>. #
+##########################################################################
+
+####
+## ERROR QUEUE / FLNK CHAIN
+####
+# PROC this to enqueue new error
+record(seq,"$(DEVN):fwdUpdErrBuf") {
+    field(SCAN, "Passive")
+    field(SELM, "All")
+    field(LNK1, "$(DEVN):errBufTimeCur.PROC")
+    field(LNK2, "$(DEVN):errBufDateCur.PROC")
+    field(LNK3, "$(DEVN):errBufStr$(BUFLEN).PROC")
+    field(FLNK, "$(DEVN):softErrIncr.PROC")
+}
+record(longout,"$(DEVN):rstErrCnt") {
+    field(OUT,  "$(DEVN):softErrCnt.VAL PP NMS")
+    field(VAL,  "0")
+}
+record(calcout,"$(DEVN):softErrIncr") {
+    field(SCAN, "Passive")
+    field(INPA, "$(DEVN):softErrCnt.VAL NPP NMS")
+    field(OUT,  "$(DEVN):softErrCnt.VAL PP NMS")
+    field(CALC, "A+1")
+}
+record(longin,"$(DEVN):softErrCnt") {
+    field(SCAN, "Passive")
+    field(HSV,  "MAJOR")
+    field(HIGH, "1")
+    field(VAL,  "0")
+    field(PINI, "YES")
+}
+
+# input links for error code and string needed!
+record(longin,"$(DEVN):errBufNum0") {
+    field(DTYP, "Soft Channel")
+    field(DISV, "1")
+    field(INP, "$(INPNUM)")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+record(waveform,"$(DEVN):errBufStr0") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP, "$(INPSTR)")
+    field(FLNK,"$(DEVN):errBufTime0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+record(stringin,"$(DEVN):errBufTimeCur") {
+    field(SCAN,"Passive")
+    field(INP,"SYSCC:time NPP NMS")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+record(stringin,"$(DEVN):errBufDateCur") {
+    field(SCAN,"Passive")
+    field(INP,"SYSCC:dateISO NPP NMS")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+record(stringin,"$(DEVN):errBufDate0") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDateCur NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+record(stringin,"$(DEVN):errBufTime0") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTimeCur NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+# the error queue expanded with pyexpander
+
+ record(longin,"$(DEVN):errBufNum1") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum0 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate1") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate0 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime1") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime0 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr1") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr0 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum2") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum1 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate2") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate1 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime2") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime1 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr2") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr1 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum3") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum2 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr2")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate3") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate2 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum3")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime3") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime2 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate3")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr3") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr2 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime3")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum4") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum3 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr3")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate4") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate3 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum4")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime4") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime3 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate4")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr4") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr3 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime4")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum5") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum4 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr4")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate5") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate4 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum5")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime5") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime4 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate5")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr5") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr4 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime5")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum6") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum5 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr5")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate6") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate5 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum6")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime6") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime5 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate6")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr6") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr5 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime6")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum7") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum6 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr6")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate7") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate6 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum7")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime7") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime6 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate7")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr7") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr6 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime7")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum8") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum7 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr7")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate8") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate7 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum8")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime8") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime7 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate8")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr8") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr7 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime8")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum9") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum8 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr8")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate9") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate8 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum9")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime9") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime8 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate9")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr9") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr8 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime9")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum10") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum9 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr9")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate10") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate9 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum10")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime10") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime9 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate10")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr10") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr9 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime10")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum11") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum10 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr10")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate11") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate10 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum11")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime11") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime10 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate11")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr11") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr10 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime11")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum12") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum11 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr11")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate12") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate11 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum12")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime12") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime11 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate12")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr12") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr11 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime12")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum13") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum12 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr12")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate13") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate12 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum13")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime13") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime12 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate13")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr13") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr12 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime13")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum14") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum13 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr13")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate14") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate13 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum14")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime14") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime13 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate14")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr14") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr13 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime14")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum15") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum14 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr14")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate15") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate14 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum15")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime15") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime14 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate15")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr15") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr14 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime15")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum16") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum15 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr15")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate16") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate15 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum16")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime16") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime15 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate16")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr16") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr15 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime16")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum17") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum16 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr16")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate17") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate16 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum17")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime17") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime16 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate17")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr17") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr16 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime17")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum18") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum17 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr17")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate18") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate17 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum18")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime18") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime17 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate18")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr18") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr17 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime18")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ record(longin,"$(DEVN):errBufNum19") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufNum18 NPP NMS")
+    field(FLNK,"$(DEVN):errBufStr18")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(VAL, "0")
+}
+
+record(stringin,"$(DEVN):errBufDate19") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufDate18 NPP NMS")
+    field(FLNK,"$(DEVN):errBufNum19")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(stringin,"$(DEVN):errBufTime19") {
+    field(DTYP,"Soft Channel")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufTime18 NPP NMS")
+    field(FLNK,"$(DEVN):errBufDate19")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(waveform,"$(DEVN):errBufStr19") {
+    field(DTYP,"Soft Channel")
+    field(FTVL,"CHAR")
+    field(NELM,"256")
+    field(SCAN,"Passive")
+    field(INP,"$(DEVN):errBufStr18 NPP NMS")
+    field(FLNK,"$(DEVN):errBufTime19")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+ 

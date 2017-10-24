@@ -1,0 +1,56 @@
+##########################################################################
+# Copyright (c) 2017 Helmholtz-Zentrum Berlin für Materialien            #
+#                    und Energie GmbH, Germany (HZB)                     #
+# This program is free software: you can redistribute it and/or modify   #
+# it under the terms of the GNU General Public License as published by   #
+# the Free Software Foundation, either version 3 of the License, or      #
+# (at your option) any later version.                                    #
+#                                                                        #
+# This program is distributed in the hope that it will be useful,        #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          #
+# GNU General Public License for more details.                           #
+#                                                                        #
+# You should have received a copy of the GNU General Public License      #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>. #
+##########################################################################
+
+####
+## ERROR QUEUE / FLNK CHAIN
+####
+# read error message if bit 2 in STB set
+record (calcout, "$(DEVN):chkErrMsg") {
+    field(DESC, "check for new error messages")
+    field(INPA, "$(DEVN):rdStb.B2")
+    field(OOPT, "When Non-zero")
+    field(CALC, "A")
+    field(OUT, "$(DEVN):rdErrCnt.PROC")
+}
+record(longin,"$(DEVN):rdErrCnt") {
+    field(DTYP,"stream")
+    field(INP,"@$(PROTO) getSystErrCnt $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK,"$(DEVN):trgErrEnq.PROC")
+}
+record(calcout,"$(DEVN):trgErrEnq") {
+    field(SCAN,"Passive")
+    field(INPA,"$(DEVN):rdErrCnt NPP NMS")
+    field(CALC,"A")
+    field(OOPT,"When Non-zero")
+    field(OUT,"$(DEVN):systErrStr.PROC PP NMS")
+}
+record(waveform,"$(DEVN):systErrStr") {
+    field(DTYP, "stream")
+    field(FTVL, "CHAR")
+    field(NELM, "256")
+    field(INP, "@$(PROTO) getSystErrNxt($(DEVN)) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):systErrNum.PROC")
+}
+record (longin, "$(DEVN):systErrNum") {
+    field(FLNK, "$(DEVN):fwdUpdErrBuf.PROC")
+}

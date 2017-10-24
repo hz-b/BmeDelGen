@@ -1,0 +1,36 @@
+Copyright (c) 2017 Helmholtz-Zentrum Berlin für Materialien
+                   und Energie GmbH, Germany (HZB)
+                   
+This device support based on ASYN/Streamdevice contains generic templates to 
+control BME Delaygenerator PCI cards through the BME Delaygenerator server 
+application.
+
+It was tested with BME SG08p PCI cards. Other models might require some minor 
+adjustment.
+
+It comes with a simple ExampleIoc which can control a single BME system with
+2 x BME SG08p PCI cards
+
+# How to build:
+1. Set the path of your EPICS Base in 
+./configure/RELEASE
+
+2. Build the support module
+$ make
+
+3. Set the path of your EPICS Base, ASYN and Streamdevice in 
+./ExampleIoc/configure/RELEASE
+
+4. Build the IOC
+make -C ./ExampleIoc/
+
+5. Set the IP used by drvAsynIPPortConfigure in 
+./ExampleIoc/iocBoot/ioc/st.cmd
+
+6. Start the IOC
+$ cd ./ExampleIoc/iocBoot/ioc
+$ ./st.cmd
+
+7. Open the edm panel for control:
+$ cd ./dl
+$ edm -x -m "DEVN=EXAMPLE" BmeDelGenMain.EXAMPLE.edl
