@@ -11,7 +11,9 @@ adjustment.
 It comes with a simple ExampleIoc which can control a single BME system with
 2 x BME SG08p PCI cards
 
-# How to build:
+####
+## How to build
+####
 1. Set the path of your EPICS Base in 
 ./configure/RELEASE
 
@@ -34,3 +36,49 @@ $ ./st.cmd
 7. Open the edm panel for control:
 $ cd ./dl
 $ edm -x -m "DEVN=EXAMPLE" BmeDelGenMain.EXAMPLE.edl
+
+
+####
+## Upper/Lower limits of clock related commands
+####
+
+The clock period and internal clock are defined by the input clock (InpClk) and prescaler / multiplier settings.
+The limits can be described as the following:
+MaxInpClk: 600MHz
+MinInpClkPeriod: 1.66ns
+MaxIntlClk: 125MHz (depending on Prescaler and Multiplier)
+MinIntlClkPeriod: 8ns
+
+MinInpClk: 10MHz/128 = 78.125kHz
+MinIntlClk: 10MHz (MinInputClock with Multiplier of 128)
+MaxIntlClkPeriod: 100ns
+
+# Limits of specific commands:
+
+DLAW (PulseWidth):
+- Max = MaxInt32 * MaxIntlClkPeriod = 2147483647 * 100ns = 214.748s
+- Min = MinIntlClkPeriod / 2 = 4ns (minimum is the half step, higher values require full steps e.g. 8ns, 16ns etc.)
+
+FORC
+- Max = MaxInt32 * MaxIntlClkPeriod = 2147483647 * 100ns = 214.748s
+- Min = -1 (off), minimal step width  is MinIntlClkPeriod = 8ns
+
+INHB
+- Max = MaxInt32 * MaxIntlClkPeriod = 2147483647 * 100ns = 214.748s
+- Min = -1 (off), minimal step width  is MinIntlClkPeriod = 8ns
+
+STBK
+- Max = MaxInt32 * MaxIntlClkPeriod = 2147483647 * 100ns = 214.748s
+- Min = -1 (off), minimal step width  is MinIntlClkPeriod = 8ns
+
+GDEL (delay of gate signal):
+- Max = 63 * MaxIntlClkPeriod = 63 * 100ns = 6,3μs
+- Min =  0 (off), minimal step width is MinInpClkPeriod = 1.66ns
+
+DLAY
+This is actually a formula, so no hard HOPR and LOPR values are set in the EPICS database template. For for scalar values and calculation results the limits are defined as:
+- Max = MaxInt32 * MaxIntlClkPeriod = 2147483647 * 100ns = 214.748s
+- Min = 0 (no Delay) 25ps Steps
+
+Note: The list only show the possible maximums and minimums. The current maximum and minimum for each command depends on the current internal clock period.
+The higher or lower inputs will be rounded to the current limits which can be seen in the readback values.
