@@ -110,6 +110,20 @@ record (bi, "$(DEVN):rcl$(CARD)") {
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):fwdRcl$(CARD).PROC")
+}
+
+# further recall parameters done through input records
+# writing into mbbo via streamdevice redirect would not consider value assignment
+record (seq, "$(DEVN):fwdRcl$(CARD)") {
+    field(DESC, "fwd gate settings")
+    field(SELM, "All")
+    field(LNK1, "$(DEVN):rclExtClkMult$(CARD).PROC")
+    field(LNK2, "$(DEVN):rclClkSrc$(CARD).PROC")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):fwdRclData$(CARD).PROC")
 }
 
 ####
@@ -170,10 +184,37 @@ record(longin, "$(DEVN):rdExtClkDiv$(CARD)") {
 #CEMU(?) i{,k}	External Clock Source Multiplier
 #Note: Multiplier is only implemented on BME_SG08p cards
 #Note: we need this calcout to reset the mbbo after recall
-record(calcout, "$(DEVN):setExtClkMultRcl$(CARD)") {
-    field(DESC, "External Clock Source Multiplier recall")
+record(mbbi, "$(DEVN):rclExtClkMult$(CARD)") {
+    field(DESC, "Recall External Clock Source Multiplier")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(CEMU,$(CARD)) $(P) $(A)")
+    field(ZRVL, "1")
+    field(ONVL, "2")
+    field(TWVL, "4")
+    field(THVL, "8")
+    field(FRVL, "16")
+    field(FVVL, "32")
+    field(SXVL, "64")
+    field(SVVL, "128")
+    field(ZRST, "1")
+    field(ONST, "2")
+    field(TWST, "4")
+    field(THST, "8")
+    field(FRST, "16")
+    field(FVST, "32")
+    field(SXST, "64")
+    field(SVST, "128")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):fwdRclExtClkMult$(CARD).PROC")
+}
+
+record(longout, "$(DEVN):fwdRclExtClkMult$(CARD)") {
+    field(DESC, "Internal Clock Source Divider")
     field(OUT,  "$(DEVN):setExtClkMult$(CARD) PP")
-    field(CALC, "LOG(A)/LOG(2)")
+    field(DOL,  "$(DEVN):rclExtClkMult$(CARD)")
+    field(OMSL, "closed_loop")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
@@ -311,19 +352,47 @@ record(bi, "$(DEVN):rdSyncClkP$(CARD)") {
 }
 
 #CSRC(?) i{,k}	Clock Source
+record(mbbi, "$(DEVN):rclClkSrc$(CARD)") {
+    field(DESC, "recall Resynchronize Clock Signal")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(CSRC,$(CARD)) $(P) $(A)")
+    field(ZRVL, "1")
+    field(ONVL, "2")
+    field(TWVL, "3")
+    field(THVL, "4")
+    field(ZRST, "Intl. Oscillator")
+    field(ONST, "Input Connector")
+    field(TWST, "Inp. Con.+Intl Osc.")
+    field(THST, "Clk. Master Card")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):fwdRclClkSrc$(CARD).PROC")
+}
+
+record(longout, "$(DEVN):fwdRclClkSrc$(CARD)") {
+    field(DESC, "Internal Clock Source Divider")
+    field(OUT,  "$(DEVN):setClkSrc$(CARD) PP")
+    field(DOL,  "$(DEVN):rclClkSrc$(CARD)")
+    field(OMSL, "closed_loop")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
 record(mbbo, "$(DEVN):setClkSrc$(CARD)") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "Resynchronize Clock Signal")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDecCard(CSRC,$(CARD)) $(P) $(A)")
-    field(ONVL, "1")
-    field(TWVL, "2")
-    field(THVL, "3")
-    field(FRVL, "4")
-    field(ONST, "Intl. Oscillator")
-    field(TWST, "Input Connector")
-    field(THST, "Inp. Con.+Intl Osc.")
-    field(FRST, "Clk. Master Card")
+    field(ZRVL, "1")
+    field(ONVL, "2")
+    field(TWVL, "3")
+    field(THVL, "4")
+    field(ZRST, "Intl. Oscillator")
+    field(ONST, "Input Connector")
+    field(TWST, "Inp. Con.+Intl Osc.")
+    field(THST, "Clk. Master Card")
     field(DISV, "1")
     field(VAL,  "1")
     field(DISV, "1")
@@ -336,14 +405,14 @@ record(mbbi, "$(DEVN):rdClkSrc$(CARD)") {
     field(DESC, "Resynchronize Clock Signal")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDecCard(CSRC,$(CARD)) $(P) $(A)")
-    field(ONVL, "1")
-    field(TWVL, "2")
-    field(THVL, "3")
-    field(FRVL, "4")
-    field(ONST, "Intl. Oscillator")
-    field(TWST, "Input Connector")
-    field(THST, "Inp. Con.+Intl Osc.")
-    field(FRST, "Clk. Master Card")
+    field(ZRVL, "1")
+    field(ONVL, "2")
+    field(TWVL, "3")
+    field(THVL, "4")
+    field(ZRST, "Intl. Oscillator")
+    field(ONST, "Input Connector")
+    field(TWST, "Inp. Con.+Intl Osc.")
+    field(THST, "Clk. Master Card")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
