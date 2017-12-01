@@ -3,9 +3,9 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 584
-y 560
-w 625
+x 250
+y 858
+w 935
 h 62
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-medium-r-12.0"
@@ -181,71 +181,6 @@ value {
 autoSize
 endObjectProperties
 
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 405
-y 19
-w 75
-h 19
-fgColor index 14
-bgColor index 32
-inconsistentColor index 21
-topShadowColor index 1
-botShadowColor index 7
-controlPv "$(DEVN):selLink$(CARD)$(LINK)"
-font "helvetica-bold-r-12.0"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 405
-y 40
-w 75
-h 14
-controlPv "$(DEVN):stLink$(CARD)$(LINK)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 405
-y 2
-w 76
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Link $(LINK)"
-}
-autoSize
-endObjectProperties
-
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -254,7 +189,7 @@ minor 0
 release 0
 x 0
 y 58
-w 625
+w 935
 h 1
 lineColor index 14
 fillColor index 19
@@ -406,7 +341,7 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 540
+x 850
 y 20
 w 80
 h 35
@@ -523,5 +458,265 @@ showUnits
 useAlarmBorder
 newPos
 objType "monitors"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 405
+y 19
+w 75
+h 19
+fgColor index 14
+bgColor index 32
+inconsistentColor index 21
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):selLink$(CARD)$(LINK)"
+font "helvetica-bold-r-10.0"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 405
+y 40
+w 75
+h 14
+controlPv "$(DEVN):stLink$(CARD)$(LINK)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 405
+y 2
+w 76
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Link $(LINK)"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 540
+y 19
+w 120
+h 19
+fgColor index 14
+bgColor index 32
+inconsistentColor index 21
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):setDelClk$(CARD)$(CHAN)"
+font "helvetica-bold-r-10.0"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 540
+y 40
+w 120
+h 14
+controlPv "$(DEVN):rdDelClk$(CARD)$(CHAN)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 540
+y 2
+w 70
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Delay Clock"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 770
+y 19
+w 75
+h 19
+fgColor index 14
+bgColor index 32
+inconsistentColor index 21
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):setIntlT$(CARD)$(CHAN)"
+font "helvetica-bold-r-10.0"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 770
+y 40
+w 75
+h 14
+controlPv "$(DEVN):rdIntlT$(CARD)$(CHAN)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 770
+y 2
+w 62
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Intl. Term."
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 665
+y 19
+w 100
+h 19
+fgColor index 14
+bgColor index 32
+inconsistentColor index 21
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):setOutPol$(CARD)$(CHAN)"
+font "helvetica-bold-r-10.0"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 665
+y 40
+w 100
+h 14
+controlPv "$(DEVN):rdOutPol$(CARD)$(CHAN)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 665
+y 2
+w 91
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Output Polarity"
+}
+autoSize
 endObjectProperties
 
