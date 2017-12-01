@@ -86,6 +86,9 @@ rclChan {
     out "DLAY? "$CARD","$CHAN""; in "%("$DEVN":setDelay"$CARD""$CHAN".VAL)s";
     out "LINK? "$CARD","$LINK""; in "%("$DEVN":selLink"$CARD""$LINK".VAL)s";
     out "DLAC? "$CARD","$CHAN""; in "%("$DEVN":setGo"$CARD""$CHAN".VAL)d";
+    out "DCLK? "$CARD","$CHAN""; in "%("$DEVN":setDelClk"$CARD""$CHAN".VAL)d";
+    out "DLOP? "$CARD","$CHAN""; in "%("$DEVN":setOutPol"$CARD""$CHAN".VAL)d";
+    out "DLTM? "$CARD","$CHAN""; in "%("$DEVN":setIntlTerm"$CARD""$CHAN".VAL)d";
 }
 
 # recall parameters of one card, useful after *RCL
