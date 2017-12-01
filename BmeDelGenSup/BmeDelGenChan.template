@@ -52,7 +52,7 @@ record (seq, "$(DEVN):fwdInit$(CARD)$(CHAN)") {
 record (seq, "$(DEVN):fwdInit2$(CARD)$(CHAN)") {
     field(DESC, "fwd settings")
     field(SELM, "All")
-    field(LNK1, "$(DEVN):setIntlTerm$(CARD)$(CHAN).PROC")
+    field(LNK1, "$(DEVN):setIntlT$(CARD)$(CHAN).PROC")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
@@ -329,7 +329,7 @@ record(bi, "$(DEVN):rdOutPol$(CARD)$(CHAN)") {
 }
 
 #DLTM(?) i,k{,m}	Set or query the internal Termination of an output channel
-record(bo, "$(DEVN):setIntlTerm$(CARD)$(CHAN)") {
+record(bo, "$(DEVN):setIntlT$(CARD)$(CHAN)") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "internal termination")
     field(DTYP, "stream")
@@ -340,10 +340,10 @@ record(bo, "$(DEVN):setIntlTerm$(CARD)$(CHAN)") {
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
-    field(FLNK, "$(DEVN):rdIntlTerm$(CARD)$(CHAN)")
+    field(FLNK, "$(DEVN):rdIntlT$(CARD)$(CHAN)")
 }
 
-record(bi, "$(DEVN):rdIntlTerm$(CARD)$(CHAN)") {
+record(bi, "$(DEVN):rdIntlT$(CARD)$(CHAN)") {
     field(DESC, "internal termination")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDecChan(DLTM,$(CARD),$(CHAN)) $(P) $(A)")
