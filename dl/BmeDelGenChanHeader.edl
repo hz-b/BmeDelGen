@@ -3,9 +3,9 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 547
-y 687
-w 625
+x 548
+y 709
+w 960
 h 40
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-medium-r-12.0"
@@ -29,7 +29,7 @@ minor 1
 release 1
 x 0
 y 0
-w 625
+w 960
 h 25
 font "helvetica-bold-r-18.0"
 fontAlign "center"
@@ -46,7 +46,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 500
+x 840
 y 2
 w 120
 h 25
@@ -56,7 +56,7 @@ fgColor index 0
 bgColor index 0
 useDisplayBg
 value {
-  "Schroeder 2017/08/14"
+  "Schroeder 2017/11/24"
   "$(APP_NAME)"
 }
 endObjectProperties
@@ -69,7 +69,7 @@ minor 7
 release 0
 x 0
 y 25
-w 625
+w 960
 h 12
 controlPv "$(DEVN):rdIdn"
 font "helvetica-medium-r-10.0"

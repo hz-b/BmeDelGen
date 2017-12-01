@@ -3,9 +3,9 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 250
-y 858
-w 935
+x 252
+y 902
+w 960
 h 62
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-medium-r-12.0"
@@ -111,76 +111,6 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 295
-y 20
-w 50
-h 14
-controlPv "$(DEVN):setModCount$(CARD)$(CHAN)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 295
-y 40
-w 50
-h 14
-controlPv "$(DEVN):rdModCount$(CARD)$(CHAN)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 295
-y 2
-w 42
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Modulo"
-}
-autoSize
-endObjectProperties
-
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -189,7 +119,7 @@ minor 0
 release 0
 x 0
 y 58
-w 935
+w 960
 h 1
 lineColor index 14
 fillColor index 19
@@ -201,178 +131,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 350
-y 20
-w 50
-h 14
-controlPv "$(DEVN):setModOff$(CARD)$(CHAN)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 350
-y 40
-w 50
-h 14
-controlPv "$(DEVN):rdModOff$(CARD)$(CHAN)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 350
-y 2
-w 43
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "M. Off."
-}
-autoSize
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 485
-y 20
-w 50
-h 14
-controlPv "$(DEVN):setStepBack$(CARD)$(CHAN)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 485
-y 40
-w 50
-h 14
-controlPv "$(DEVN):rdStepBack$(CARD)$(CHAN)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 485
-y 2
-w 39
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Stepb."
-}
-autoSize
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 4
-release 0
-x 850
-y 20
-w 80
-h 35
-fgColor index 14
-bgColor index 32
-topShadowColor index 1
-botShadowColor index 7
-font "helvetica-bold-r-10.0"
-buttonLabel "Go Signal"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "BmeDelGenGoSignal.edl"
-}
-menuLabel {
-  0 "GoSignal Settings"
-}
-symbols {
-  0 "DEVN=$(DEVN),APP_NAME=$(APP_NAME),CARD=$(CARD),CHAN=$(CHAN)"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
 x 215
 y 20
-w 75
+w 100
 h 14
 controlPv "$(DEVN):setPulseWidth$(CARD)$(CHAN)"
 font "helvetica-bold-r-12.0"
@@ -396,7 +157,7 @@ minor 7
 release 0
 x 215
 y 40
-w 75
+w 100
 h 14
 controlPv "$(DEVN):rdPulseWidth$(CARD)$(CHAN)"
 font "helvetica-bold-r-12.0"
@@ -460,13 +221,252 @@ newPos
 objType "monitors"
 endObjectProperties
 
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 320
+y 20
+w 50
+h 14
+controlPv "$(DEVN):setModCount$(CARD)$(CHAN)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 32
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 320
+y 40
+w 50
+h 14
+controlPv "$(DEVN):rdModCount$(CARD)$(CHAN)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 320
+y 2
+w 42
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Modulo"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 375
+y 20
+w 50
+h 14
+controlPv "$(DEVN):setModOff$(CARD)$(CHAN)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 32
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 375
+y 40
+w 50
+h 14
+controlPv "$(DEVN):rdModOff$(CARD)$(CHAN)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 375
+y 2
+w 43
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "M. Off."
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 510
+y 20
+w 50
+h 14
+controlPv "$(DEVN):setStepBack$(CARD)$(CHAN)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 32
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 510
+y 40
+w 50
+h 14
+controlPv "$(DEVN):rdStepBack$(CARD)$(CHAN)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 510
+y 2
+w 39
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Stepb."
+}
+autoSize
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 875
+y 20
+w 80
+h 35
+fgColor index 14
+bgColor index 32
+topShadowColor index 1
+botShadowColor index 7
+font "helvetica-bold-r-10.0"
+buttonLabel "Go Signal"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "BmeDelGenGoSignal.edl"
+}
+menuLabel {
+  0 "GoSignal Settings"
+}
+symbols {
+  0 "DEVN=$(DEVN),APP_NAME=$(APP_NAME),CARD=$(CARD),CHAN=$(CHAN)"
+}
+endObjectProperties
+
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 405
+x 430
 y 19
 w 75
 h 19
@@ -485,7 +485,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 405
+x 430
 y 40
 w 75
 h 14
@@ -511,7 +511,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 405
+x 430
 y 2
 w 76
 h 14
@@ -531,7 +531,7 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 540
+x 565
 y 19
 w 120
 h 19
@@ -550,7 +550,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 540
+x 565
 y 40
 w 120
 h 14
@@ -576,7 +576,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 540
+x 565
 y 2
 w 70
 h 14
@@ -596,7 +596,7 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 770
+x 795
 y 19
 w 75
 h 19
@@ -615,7 +615,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 770
+x 795
 y 40
 w 75
 h 14
@@ -641,7 +641,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 770
+x 795
 y 2
 w 62
 h 14
@@ -661,7 +661,7 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 665
+x 690
 y 19
 w 100
 h 19
@@ -680,7 +680,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 665
+x 690
 y 40
 w 100
 h 14
@@ -706,7 +706,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 665
+x 690
 y 2
 w 91
 h 14
