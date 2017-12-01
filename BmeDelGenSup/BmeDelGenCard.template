@@ -302,7 +302,7 @@ record(longin, "$(DEVN):rdIntlClkDiv$(CARD)") {
 #CMSY(?) i{,k}	Set or query the Resynchronization of the Clock Multiplier
 record(bo, "$(DEVN):setSyncClkM$(CARD)") {
     info("autosaveFields_pass0", "VAL")
-    field(DESC, "Resynchronization of the Clock Multiplier")
+    field(DESC, "Resync. of the Clock Multiplier")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDecCard(CMSY,$(CARD)) $(P) $(A)")
     field(ZNAM, "OFF")
@@ -315,7 +315,7 @@ record(bo, "$(DEVN):setSyncClkM$(CARD)") {
 }
 
 record(bi, "$(DEVN):rdSyncClkM$(CARD)") {
-    field(DESC, "Resynchronization of the Clock Multiplier")
+    field(DESC, "Resync. of the Clock Multiplier")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDecCard(CMSY,$(CARD)) $(P) $(A)")
     field(ZNAM, "OFF")
