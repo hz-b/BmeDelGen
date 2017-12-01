@@ -114,6 +114,10 @@ rclCard {
     out "CEMU? "$CARD""; in "%("$DEVN":setExtClkMult"$CARD".VAL)d";
     out "CIDV? "$CARD""; in "%("$DEVN":setIntlClkDiv"$CARD".VAL)d";
     out "CSRC? "$CARD""; in "%("$DEVN":setClkSrc"$CARD".VAL)d";
+    out "CMSY? "$CARD""; in "%("$DEVN":setSyncClkM"$CARD".VAL)d";
+    out "CPSY? "$CARD""; in "%("$DEVN":setSyncClkP"$CARD".VAL)d";
+    out "TRMG? "$CARD""; in "%("$DEVN":setGateInT"$CARD".VAL)d";
+    out "TRMT? "$CARD""; in "%("$DEVN":setTrigInT"$CARD".VAL)d";
 }
 
 ####

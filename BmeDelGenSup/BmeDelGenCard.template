@@ -33,6 +33,10 @@ record (seq, "$(DEVN):fwdInit$(CARD)") {
     field(DESC, "fwd settings")
     field(SELM, "All")
     field(LNK1, "$(DEVN):rdDnam$(CARD).PROC")
+    field(LNK2, "$(DEVN):setSyncClkM$(CARD).PROC")
+    field(LNK3, "$(DEVN):setSyncClkP$(CARD).PROC")
+    field(LNK4, "$(DEVN):setGateInT$(CARD).PROC")
+    field(LNK5, "$(DEVN):setTrigInT$(CARD).PROC")
     field(PINI, "YES")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
@@ -239,6 +243,58 @@ record(longin, "$(DEVN):rdIntlClkDiv$(CARD)") {
     field(DESC, "Internal Clock Source Divider")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDecCard(CIDV,$(CARD)) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#CMSY(?) i{,k}	Set or query the Resynchronization of the Clock Multiplier
+record(bo, "$(DEVN):setSyncClkM$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Resynchronization of the Clock Multiplier")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(CMSY,$(CARD)) $(P) $(A)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdSyncClkM$(CARD).PROC")
+}
+
+record(bi, "$(DEVN):rdSyncClkM$(CARD)") {
+    field(DESC, "Resynchronization of the Clock Multiplier")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(CMSY,$(CARD)) $(P) $(A)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#CPSY(?) i{,k}	Set or query the Resynchronization of the Clock Prescaler
+record(bo, "$(DEVN):setSyncClkP$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Resynchronization of the Clock Prescaler")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(CPSY,$(CARD)) $(P) $(A)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdSyncClkP$(CARD).PROC")
+}
+
+record(bi, "$(DEVN):rdSyncClkP$(CARD)") {
+    field(DESC, "Resynchronization of the Clock Prescaler")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(CPSY,$(CARD)) $(P) $(A)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
@@ -681,6 +737,58 @@ record(ai, "$(DEVN):rdTriggerLevel$(CARD)") {
     field(INP,  "@$(PROTO) getFltCard(TLVL,$(CARD)) $(P) $(A)")
     field(EGU,  "V")
     field(PREC, "4")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#TRMG(?) i{,k}	Set or query the Gate input termination
+record(bo, "$(DEVN):setGateInT$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Gate input termination")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(TRMG,$(CARD)) $(P) $(A)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdGateInT$(CARD).PROC")
+}
+
+record(bi, "$(DEVN):rdGateInT$(CARD)") {
+    field(DESC, "Gate input termination")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(TRMG,$(CARD)) $(P) $(A)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#TRMT(?) i{,k}	Set or query the Trigger input terminations
+record(bo, "$(DEVN):setTrigInT$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Trigger input terminations")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(TRMT,$(CARD)) $(P) $(A)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdTrigInT$(CARD).PROC")
+}
+
+record(bi, "$(DEVN):rdTrigInT$(CARD)") {
+    field(DESC, "Trigger input terminations")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(TRMT,$(CARD)) $(P) $(A)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
