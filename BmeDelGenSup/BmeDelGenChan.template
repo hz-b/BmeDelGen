@@ -40,7 +40,7 @@ record (seq, "$(DEVN):fwdInit$(CARD)$(CHAN)") {
     field(LNK6, "$(DEVN):setDelay$(CARD)$(CHAN).PROC")
     field(LNK7, "$(DEVN):selLink$(CARD)$(LINK).PROC")
     field(LNK8, "$(DEVN):rdCnam$(CARD)$(CHAN).PROC")
-    field(LNK9, "$(DEVN):setDelClk$(CARD)$(LINK).PROC")
+    field(LNK9, "$(DEVN):setDelClk$(CARD)$(CHAN).PROC")
     field(LNKA, "$(DEVN):setOutPol$(CARD)$(CHAN).PROC")
     field(PINI, "YES")
     field(DISV, "1")
