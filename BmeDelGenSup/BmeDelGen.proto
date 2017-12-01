@@ -110,6 +110,10 @@ rclCard {
     out "GDIV? "$CARD""; in "%("$DEVN":setGateDiv"$CARD".VAL)d";
     out "GIGN? "$CARD""; in "%("$DEVN":setGateIgn"$CARD".VAL)d";
     out "GLVL? "$CARD""; in "%("$DEVN":setGateLevel"$CARD".VAL)f";
+    out "CEDV? "$CARD""; in "%("$DEVN":setExtClkDiv"$CARD".VAL)d";
+    out "CEMU? "$CARD""; in "%("$DEVN":setExtClkMult"$CARD".VAL)d";
+    out "CIDV? "$CARD""; in "%("$DEVN":setIntlClkDiv"$CARD".VAL)d";
+    out "CSRC? "$CARD""; in "%("$DEVN":setClkSrc"$CARD".VAL)d";
 }
 
 ####

@@ -56,6 +56,19 @@ record (seq, "$(DEVN):fwdInitTrig$(CARD)") {
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):fwdInitTrig2$(CARD).PROC")
+}
+
+record (seq, "$(DEVN):fwdInitTrig2$(CARD)") {
+    field(DESC, "fwd settings")
+    field(SELM, "All")
+    field(LNK1, "$(DEVN):setExtClkDiv$(CARD).PROC")
+    field(LNK2, "$(DEVN):setExtClkMult$(CARD).PROC")
+    field(LNK3, "$(DEVN):setIntlClkDiv$(CARD).PROC")
+    field(LNK4, "$(DEVN):setClkSrc$(CARD).PROC")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
     field(FLNK, "$(DEVN):fwdInitGate$(CARD).PROC")
 }
 
@@ -98,16 +111,6 @@ record (bi, "$(DEVN):rcl$(CARD)") {
 ####
 ## CARD COMMANDS - records that are used per DelayCard
 ####
-#DNAM(?) i{,s}	Name of Delay Generator Card
-record(stringin, "$(DEVN):rdDnam$(CARD)") {
-    field(DESC, "Name of Delay Gen. Card")
-    field(DTYP, "stream")
-    field(INP,  "@$(PROTO) getStrCard(DNAM,$(CARD)) $(P) $(A)")
-    field(DISV, "1")
-    field(SDIS, "$(DEVN):disable NMS")
-    field(DISS, "INVALID")
-}
-
 #BRST(?) i{,k}	Burst Count
 record(longout, "$(DEVN):setBurstCount$(CARD)") {
     info("autosaveFields_pass0", "VAL")
@@ -129,6 +132,162 @@ record(longin, "$(DEVN):rdBurstCount$(CARD)") {
     field(DESC, "burst counter")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDecCard(BRST,$(CARD)) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#CEDV(?) i{,k}	External Clock Source Divider
+record(longout, "$(DEVN):setExtClkDiv$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "External Clock Source Divider")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(CEDV,$(CARD)) $(P) $(A)")
+    field(LOPR, "1")
+    field(DRVL, "1")
+    field(HOPR, "32")
+    field(DRVH, "32")
+    field(VAL,  "1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdExtClkDiv$(CARD)")
+}
+
+record(longin, "$(DEVN):rdExtClkDiv$(CARD)") {
+    field(DESC, "External Clock Source Divider")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(CEDV,$(CARD)) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#CEMU(?) i{,k}	External Clock Source Multiplier
+#Note: Multiplier is only implemented on BME_SG08p cards
+record(mbbo, "$(DEVN):setExtClkMult$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "External Clock Source Multiplier")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(CEMU,$(CARD))) $(P) $(A)")
+    field(ZRVL, "1")
+    field(ONVL, "2")
+    field(TWVL, "4")
+    field(THVL, "8")
+    field(FRVL, "16")
+    field(FVVL, "32")
+    field(SXVL, "64")
+    field(SVVL, "128")
+    field(ZRST, "1")
+    field(ONST, "2")
+    field(TWST, "4")
+    field(THST, "8")
+    field(FRST, "16")
+    field(FVST, "32")
+    field(SXST, "64")
+    field(SVST, "128")
+    field(VAL,  "1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdExtClkMult$(CARD)")
+}
+
+record(mbbi, "$(DEVN):rdExtClkMult$(CARD)") {
+    field(DESC, "External Clock Source Multiplier")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(CEMU,$(CARD)) $(P) $(A)")
+    field(ZRVL, "1")
+    field(ONVL, "2")
+    field(TWVL, "4")
+    field(THVL, "8")
+    field(FRVL, "16")
+    field(FVVL, "32")
+    field(SXVL, "64")
+    field(SVVL, "128")
+    field(ZRST, "1")
+    field(ONST, "2")
+    field(TWST, "4")
+    field(THST, "8")
+    field(FRST, "16")
+    field(FVST, "32")
+    field(SXST, "64")
+    field(SVST, "128")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#CIDV(?) i{,k}	Internal Clock Source Divider
+record(longout, "$(DEVN):setIntlClkDiv$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Internal Clock Source Divider")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(CIDV,$(CARD)) $(P) $(A)")
+    field(LOPR, "1")
+    field(DRVL, "1")
+    field(HOPR, "32")
+    field(DRVH, "32")
+    field(VAL,  "1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdIntlClkDiv$(CARD)")
+}
+
+record(longin, "$(DEVN):rdIntlClkDiv$(CARD)") {
+    field(DESC, "Internal Clock Source Divider")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(CIDV,$(CARD)) $(P) $(A)")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#CSRC(?) i{,k}	Clock Source
+record(mbbo, "$(DEVN):setClkSrc$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "Resynchronize Clock Signal")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecCard(CSRC,$(CARD))) $(P) $(A)")
+    field(ZRVL, "1")
+    field(ONVL, "2")
+    field(TWVL, "3")
+    field(THVL, "4")
+    field(ZRST, "Intl. Oscillator")
+    field(ONST, "Input Connector")
+    field(TWST, "Inp. Con.+Intl Osc.")
+    field(THST, "Clk. Master Card")
+    field(DISV, "1")
+    field(VAL,  "1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdClkSrc$(CARD)")
+}
+
+record(mbbi, "$(DEVN):rdClkSrc$(CARD)") {
+    field(DESC, "Resynchronize Clock Signal")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecCard(CSRC,$(CARD)) $(P) $(A)")
+    field(ZRVL, "1")
+    field(ONVL, "2")
+    field(TWVL, "3")
+    field(THVL, "4")
+    field(ZRST, "Intl. Oscillator")
+    field(ONST, "Input Connector")
+    field(TWST, "Inp. Con.+Intl Osc.")
+    field(THST, "Clk. Master Card")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#DNAM(?) i{,s}	Name of Delay Generator Card
+record(stringin, "$(DEVN):rdDnam$(CARD)") {
+    field(DESC, "Name of Delay Gen. Card")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getStrCard(DNAM,$(CARD)) $(P) $(A)")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
@@ -166,6 +325,7 @@ record(ai, "$(DEVN):rdForceTrig$(CARD)") {
 
 #GATE(?) i{,k}	Gate Source
 record(mbbo, "$(DEVN):setGateSource$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
     field(DESC, "gate source")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDecCard(GATE,$(CARD))) $(P) $(A)")
@@ -255,6 +415,7 @@ record(longin, "$(DEVN):rdGateDiv$(CARD)") {
 
 #GIGN(?) i{,a}	Gate Ignore
 record(bo, "$(DEVN):setGateIgn$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
     field(DESC, "gate ignore")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDecCard(GIGN,$(CARD)) $(P) $(A)")
@@ -471,6 +632,7 @@ record(ai, "$(DEVN):rdStepBackTime$(CARD)") {
 
 #STPR(?) i{,k}	Stop on Preset Flag
 record(bo, "$(DEVN):setStopPreset$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
     field(DESC, "disable trig. after PRES trig. events")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDecCard(STPR,$(CARD)) $(P) $(A)")
@@ -526,6 +688,7 @@ record(ai, "$(DEVN):rdTriggerLevel$(CARD)") {
 
 #TSRC(?) i{,k}	Trigger Source
 record(mbbo, "$(DEVN):setTrigSource$(CARD)") {
+    info("autosaveFields_pass0", "VAL")
     field(DESC, "trigger source")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDecCard(TSRC,$(CARD))) $(P) $(A)")
