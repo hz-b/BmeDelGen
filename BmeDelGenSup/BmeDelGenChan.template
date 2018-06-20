@@ -79,6 +79,7 @@ record (bi, "$(DEVN):rcl$(CARD)$(CHAN)") {
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdCnam$(CARD)$(CHAN)")
 }
 
 ####
