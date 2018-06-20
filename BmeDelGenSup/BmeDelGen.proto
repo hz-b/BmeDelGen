@@ -15,11 +15,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>. #
 ##########################################################################
 
-@writetimeout { disconnect; connect 5000;}
-@replytimeout { disconnect; connect 5000;}
-@readtimeout  { disconnect; connect 5000;}
-@mismatch  { disconnect; connect 5000;}
-
 LockTimeout = 7500;
 WriteTimeout = 1000;
 ReplyTimeout = 5000;
