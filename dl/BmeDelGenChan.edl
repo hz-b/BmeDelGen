@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 252
-y 902
+x 148
+y 666
 w 960
 h 62
 font "helvetica-medium-r-18.0"
@@ -35,7 +35,7 @@ controlPv "$(DEVN):setDelay$(CARD)$(CHAN)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -139,7 +139,7 @@ controlPv "$(DEVN):setPulseWidth$(CARD)$(CHAN)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -235,7 +235,7 @@ controlPv "$(DEVN):setModCount$(CARD)$(CHAN)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -305,7 +305,7 @@ controlPv "$(DEVN):setModOff$(CARD)$(CHAN)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -375,7 +375,7 @@ controlPv "$(DEVN):setStepBack$(CARD)$(CHAN)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -458,6 +458,7 @@ menuLabel {
 symbols {
   0 "DEVN=$(DEVN),APP_NAME=$(APP_NAME),CARD=$(CARD),CHAN=$(CHAN)"
 }
+icon
 endObjectProperties
 
 # (Menu Button)
@@ -471,8 +472,8 @@ y 19
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):selLink$(CARD)$(LINK)"
@@ -536,8 +537,8 @@ y 19
 w 120
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setDelClk$(CARD)$(CHAN)"
@@ -601,8 +602,8 @@ y 19
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setIntlT$(CARD)$(CHAN)"
@@ -666,8 +667,8 @@ y 19
 w 100
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setOutPol$(CARD)$(CHAN)"

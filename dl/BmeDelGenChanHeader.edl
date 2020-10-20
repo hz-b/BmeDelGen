@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 548
-y 709
+x 118
+y 884
 w 960
 h 40
 font "helvetica-medium-r-18.0"
@@ -21,6 +21,21 @@ topShadowColor index 2
 botShadowColor index 0
 endScreenProperties
 
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 960
+h 40
+lineColor index 14
+fill
+fillColor index 24
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -33,11 +48,36 @@ w 960
 h 25
 font "helvetica-bold-r-18.0"
 fontAlign "center"
-fgColor index 0
+fgColor index 2
 bgColor index 24
+useDisplayBg
 value {
   "$(DEVN)"
 }
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 0
+y 25
+w 960
+h 14
+controlPv "$(DEVN):rdIdn"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 24
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Static Text)
@@ -56,32 +96,9 @@ fgColor index 0
 bgColor index 0
 useDisplayBg
 value {
-  "Schroeder 2017/11/24"
+  "Schroeder 2020/08/31"
   "$(APP_NAME)"
 }
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 0
-y 25
-w 960
-h 12
-controlPv "$(DEVN):rdIdn"
-font "helvetica-medium-r-10.0"
-fontAlign "center"
-fgColor index 0
-bgColor index 24
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "monitors"
 endObjectProperties
 
 # (Static Text)

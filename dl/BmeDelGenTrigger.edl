@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 690
-y 275
+x 1156
+y 340
 w 430
 h 470
 font "helvetica-medium-r-18.0"
@@ -20,88 +20,6 @@ ctlBgColor2 index 21
 topShadowColor index 2
 botShadowColor index 0
 endScreenProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 0
-y 0
-w 430
-h 25
-font "helvetica-bold-r-18.0"
-fontAlign "center"
-fgColor index 0
-bgColor index 24
-value {
-  "$(DEVN)"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 310
-y 2
-w 120
-h 25
-font "helvetica-medium-r-10.0"
-fontAlign "center"
-fgColor index 0
-bgColor index 0
-useDisplayBg
-value {
-  "Schroeder 2017/11/21"
-  "$(APP_NAME)"
-}
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 0
-y 25
-w 430
-h 12
-controlPv "$(DEVN):rdIdn"
-font "helvetica-medium-r-10.0"
-fontAlign "center"
-fgColor index 0
-bgColor index 24
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 2
-y 2
-w 120
-h 15
-font "helvetica-bold-r-10.0"
-fgColor index 0
-bgColor index 0
-useDisplayBg
-value {
-  "CARD: $(CARD)"
-}
-endObjectProperties
 
 # (Rectangle)
 object activeRectangleClass
@@ -128,8 +46,8 @@ y 60
 w 150
 h 20
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setClkSrc$(CARD)"
@@ -295,8 +213,8 @@ y 60
 w 130
 h 20
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setGateSource$(CARD)"
@@ -314,8 +232,8 @@ y 60
 w 130
 h 20
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setTrigSource$(CARD)"
@@ -425,8 +343,8 @@ y 120
 w 150
 h 20
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setGateIgn$(CARD)"
@@ -493,7 +411,7 @@ controlPv "$(DEVN):setTriggerLevel$(CARD)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -514,8 +432,8 @@ y 120
 w 130
 h 20
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setSyncClkM$(CARD)"
@@ -568,93 +486,6 @@ value {
 autoSize
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 215
-y 345
-w 100
-h 52
-
-beginGroup
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 215
-y 383
-w 100
-h 14
-controlPv "$(DEVN):rdBurstCount$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 215
-y 345
-w 71
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Burst Count"
-}
-autoSize
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 215
-y 363
-w 100
-h 14
-controlPv "$(DEVN):setBurstCount$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -680,8 +511,8 @@ y 120
 w 130
 h 20
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setSyncClkP$(CARD)"
@@ -732,598 +563,6 @@ value {
   "Resync. Clk. Presc."
 }
 autoSize
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 225
-w 205
-h 52
-
-beginGroup
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 5
-y 263
-w 100
-h 14
-controlPv "$(DEVN):rdForceTrig$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 5
-y 225
-w 79
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Force Trigger"
-}
-autoSize
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 5
-y 243
-w 100
-h 14
-controlPv "$(DEVN):setForceTrig$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 110
-y 263
-w 100
-h 14
-controlPv "$(DEVN):rdTrigInhb$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 110
-y 225
-w 82
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Inhibit Trigger"
-}
-autoSize
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 110
-y 243
-w 100
-h 14
-controlPv "$(DEVN):setTrigInhb$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 110
-y 165
-w 100
-h 52
-
-beginGroup
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 110
-y 203
-w 100
-h 14
-controlPv "$(DEVN):rdGateLevel$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 110
-y 165
-w 65
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Gate Level"
-}
-autoSize
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 110
-y 183
-w 100
-h 14
-controlPv "$(DEVN):setGateLevel$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 215
-y 165
-w 205
-h 52
-
-beginGroup
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 215
-y 165
-w 100
-h 52
-
-beginGroup
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 215
-y 203
-w 100
-h 14
-controlPv "$(DEVN):rdStepBack$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 215
-y 165
-w 58
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "StepBack"
-}
-autoSize
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 215
-y 183
-w 100
-h 14
-controlPv "$(DEVN):setStepBack$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 320
-y 165
-w 100
-h 52
-
-beginGroup
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 320
-y 203
-w 100
-h 14
-controlPv "$(DEVN):rdStepBackTime$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 320
-y 165
-w 91
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "StepBack Time"
-}
-autoSize
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 320
-y 183
-w 100
-h 14
-controlPv "$(DEVN):setStepBackTime$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 215
-y 225
-w 205
-h 52
-
-beginGroup
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 320
-y 263
-w 100
-h 14
-controlPv "$(DEVN):rdGateDiv$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 320
-y 225
-w 75
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Gate Divider"
-}
-autoSize
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 320
-y 243
-w 100
-h 14
-controlPv "$(DEVN):setGateDiv$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 215
-y 263
-w 100
-h 14
-controlPv "$(DEVN):rdGateDelay$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 215
-y 225
-w 67
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Gate Delay"
-}
-autoSize
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 215
-y 243
-w 100
-h 14
-controlPv "$(DEVN):setGateDelay$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 32
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-endGroup
-
 endObjectProperties
 
 # (Group)
@@ -1854,18 +1093,309 @@ endGroup
 
 endObjectProperties
 
-# (Group)
-object activeGroupClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 110
+y 323
+w 100
+h 14
+controlPv "$(DEVN):rdExtClkMult$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 110
+y 285
+w 84
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Ext. Clk. Mult."
+}
+autoSize
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 215
+y 323
+w 100
+h 14
+controlPv "$(DEVN):rdIntlClkDiv$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 215
+y 285
+w 77
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Intl. Clk. Div."
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 215
+y 303
+w 100
+h 14
+controlPv "$(DEVN):setIntlClkDiv$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 5
+y 285
+w 78
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Ext. Clk. Div."
+}
+autoSize
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 5
+y 323
+w 100
+h 14
+controlPv "$(DEVN):rdExtClkDiv$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 5
+y 303
+w 100
+h 14
+controlPv "$(DEVN):setExtClkDiv$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 5
-y 345
-w 205
-h 52
+x 110
+y 303
+w 100
+h 20
+fgColor index 14
+bgColor index 1
+inconsistentColor index 20
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):setExtClkMult$(CARD)"
+font "helvetica-bold-r-12.0"
+endObjectProperties
 
-beginGroup
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 430
+h 38
+lineColor index 14
+fill
+fillColor index 24
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 0
+w 430
+h 25
+font "helvetica-bold-r-18.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 24
+useDisplayBg
+value {
+  "$(DEVN)"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 0
+y 25
+w 430
+h 12
+controlPv "$(DEVN):rdIdn"
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 24
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 310
+y 2
+w 120
+h 25
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "Schroeder 2020/08/31"
+  "$(APP_NAME)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 2
+y 2
+w 120
+h 15
+font "helvetica-bold-r-10.0"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "CARD: $(CARD)"
+}
+endObjectProperties
 
 # (Menu Button)
 object activeMenuButtonClass
@@ -1878,8 +1408,8 @@ y 360
 w 100
 h 20
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
 controlPv "$(DEVN):setStopPreset$(CARD)"
@@ -1992,7 +1522,7 @@ controlPv "$(DEVN):setPreset$(CARD)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -2002,56 +1532,6 @@ newPos
 objType "controls"
 endObjectProperties
 
-endGroup
-
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 110
-y 323
-w 100
-h 14
-controlPv "$(DEVN):rdExtClkMult$(CARD)"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-fgAlarm
-bgColor index 4
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 110
-y 285
-w 84
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Ext. Clk. Mult."
-}
-autoSize
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
@@ -2059,10 +1539,10 @@ major 4
 minor 7
 release 0
 x 215
-y 323
+y 383
 w 100
 h 14
-controlPv "$(DEVN):rdIntlClkDiv$(CARD)"
+controlPv "$(DEVN):rdBurstCount$(CARD)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2085,15 +1565,15 @@ major 4
 minor 1
 release 1
 x 215
-y 285
-w 77
+y 345
+w 71
 h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Intl. Clk. Div."
+  "Burst Count"
 }
 autoSize
 endObjectProperties
@@ -2105,14 +1585,14 @@ major 4
 minor 7
 release 0
 x 215
-y 303
+y 363
 w 100
 h 14
-controlPv "$(DEVN):setIntlClkDiv$(CARD)"
+controlPv "$(DEVN):setBurstCount$(CARD)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -2122,37 +1602,17 @@ newPos
 objType "controls"
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 5
-y 285
-w 78
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Ext. Clk. Div."
-}
-autoSize
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 5
-y 323
+x 110
+y 203
 w 100
 h 14
-controlPv "$(DEVN):rdExtClkDiv$(CARD)"
+controlPv "$(DEVN):rdGateLevel$(CARD)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2168,21 +1628,41 @@ newPos
 objType "monitors"
 endObjectProperties
 
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 110
+y 165
+w 65
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate Level"
+}
+autoSize
+endObjectProperties
+
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 5
-y 303
+x 110
+y 183
 w 100
 h 14
-controlPv "$(DEVN):setExtClkDiv$(CARD)"
+controlPv "$(DEVN):setGateLevel$(CARD)"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -2192,22 +1672,423 @@ newPos
 objType "controls"
 endObjectProperties
 
-# (Menu Button)
-object activeMenuButtonClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 0
+minor 7
+release 0
+x 320
+y 203
+w 100
+h 14
+controlPv "$(DEVN):rdStepBackTime$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 320
+y 165
+w 91
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StepBack Time"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 320
+y 183
+w 100
+h 14
+controlPv "$(DEVN):setStepBackTime$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 215
+y 203
+w 100
+h 14
+controlPv "$(DEVN):rdStepBack$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 215
+y 165
+w 58
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StepBack"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 215
+y 183
+w 100
+h 14
+controlPv "$(DEVN):setStepBack$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 320
+y 263
+w 100
+h 14
+controlPv "$(DEVN):rdGateDiv$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 320
+y 225
+w 75
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate Divider"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 320
+y 243
+w 100
+h 14
+controlPv "$(DEVN):setGateDiv$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 215
+y 263
+w 100
+h 14
+controlPv "$(DEVN):rdGateDelay$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 215
+y 225
+w 67
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate Delay"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 215
+y 243
+w 100
+h 14
+controlPv "$(DEVN):setGateDelay$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 5
+y 263
+w 100
+h 14
+controlPv "$(DEVN):rdForceTrig$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 5
+y 225
+w 79
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Force Trigger"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 5
+y 243
+w 100
+h 14
+controlPv "$(DEVN):setForceTrig$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
 release 0
 x 110
-y 303
+y 263
 w 100
-h 20
-fgColor index 14
-bgColor index 32
-inconsistentColor index 21
-topShadowColor index 1
-botShadowColor index 7
-controlPv "$(DEVN):setExtClkMult$(CARD)"
+h 14
+controlPv "$(DEVN):rdTrigInhb$(CARD)"
 font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+fgAlarm
+bgColor index 4
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+showUnits
+useAlarmBorder
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 110
+y 225
+w 82
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Inhibit Trigger"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 110
+y 243
+w 100
+h 14
+controlPv "$(DEVN):setTrigInhb$(CARD)"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
 endObjectProperties
 

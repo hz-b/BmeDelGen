@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 554
-y 841
+x 560
+y 869
 w 300
 h 50
 font "helvetica-medium-r-18.0"
@@ -20,81 +20,6 @@ ctlBgColor2 index 21
 topShadowColor index 2
 botShadowColor index 0
 endScreenProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 20
-w 290
-h 25
-
-beginGroup
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 4
-release 0
-x 5
-y 20
-w 140
-h 25
-fgColor index 14
-bgColor index 32
-topShadowColor index 1
-botShadowColor index 7
-font "helvetica-bold-r-12.0"
-buttonLabel "DelayCard $(CARD)"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "BmeDelGenCardCh$(NUMCHAN).edl"
-}
-menuLabel {
-  0 "DelayCard $(CARD)"
-}
-symbols {
-  0 "DEVN=$(DEVN),APP_NAME=$(APP_NAME),CARD=$(CARD)"
-}
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 4
-release 0
-x 155
-y 20
-w 140
-h 25
-fgColor index 14
-bgColor index 32
-topShadowColor index 1
-botShadowColor index 7
-font "helvetica-bold-r-12.0"
-buttonLabel "Trigger Settings $(CARD)"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "BmeDelGenTrigger.edl"
-}
-menuLabel {
-  0 "Trigger Settings Card $(CARD)"
-}
-symbols {
-  0 "DEVN=$(DEVN),APP_NAME=$(APP_NAME),CARD=$(CARD)"
-}
-endObjectProperties
-
-endGroup
-
-endObjectProperties
 
 # (Static Text)
 object activeXTextClass
@@ -140,5 +65,65 @@ showUnits
 useAlarmBorder
 newPos
 objType "monitors"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 5
+y 20
+w 140
+h 25
+fgColor index 14
+bgColor index 32
+topShadowColor index 1
+botShadowColor index 7
+font "helvetica-bold-r-10.0"
+buttonLabel "DelayCard $(CARD)"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "BmeDelGenCardCh$(NUMCHAN).edl"
+}
+menuLabel {
+  0 "DelayCard $(CARD)"
+}
+symbols {
+  0 "DEVN=$(DEVN),APP_NAME=$(APP_NAME),CARD=$(CARD)"
+}
+icon
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 155
+y 20
+w 140
+h 25
+fgColor index 14
+bgColor index 32
+topShadowColor index 1
+botShadowColor index 7
+font "helvetica-bold-r-10.0"
+buttonLabel "Trigger Settings $(CARD)"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "BmeDelGenTrigger.edl"
+}
+menuLabel {
+  0 "Trigger Settings Card $(CARD)"
+}
+symbols {
+  0 "DEVN=$(DEVN),APP_NAME=$(APP_NAME),CARD=$(CARD)"
+}
+icon
 endObjectProperties
 

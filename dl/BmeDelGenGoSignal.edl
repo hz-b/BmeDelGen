@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1023
-y 850
+x 622
+y 584
 w 600
 h 100
 font "helvetica-medium-r-18.0"
@@ -27,48 +27,6 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 0
-y 0
-w 600
-h 15
-font "helvetica-bold-r-12.0"
-fontAlign "center"
-fgColor index 0
-bgColor index 24
-value {
-  "$(DEVN)"
-}
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 0
-y 15
-w 600
-h 14
-controlPv "$(DEVN):rdIdn"
-font "helvetica-medium-r-12.0"
-fontAlign "center"
-fgColor index 0
-bgColor index 24
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "monitors"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
 x 5
 y 35
 w 83
@@ -83,44 +41,6 @@ value {
   "Prim. Sec. Force."
 }
 autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 2
-y 2
-w 120
-h 15
-font "helvetica-bold-r-10.0"
-fgColor index 0
-bgColor index 0
-useDisplayBg
-value {
-  "CARD: $(CARD)"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 90
-y 2
-w 120
-h 15
-font "helvetica-bold-r-10.0"
-fgColor index 0
-bgColor index 0
-useDisplayBg
-value {
-  "CHANNEL: $(CHAN)"
-}
 endObjectProperties
 
 # (Group)
@@ -455,27 +375,6 @@ endObjectProperties
 
 endGroup
 
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 480
-y 2
-w 120
-h 25
-font "helvetica-medium-r-10.0"
-fontAlign "center"
-fgColor index 0
-bgColor index 0
-useDisplayBg
-value {
-  "Schroeder 2017/08/14"
-  "$(APP_NAME)"
-}
 endObjectProperties
 
 # (Static Text)
@@ -1796,5 +1695,123 @@ labelType "literal"
 font "helvetica-bold-r-10.0"
 objType "controls"
 controlBitPos 2
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 600
+h 30
+lineColor index 14
+fill
+fillColor index 24
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 0
+y 16
+w 600
+h 12
+controlPv "$(DEVN):rdIdn"
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 24
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 0
+w 600
+h 15
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 24
+useDisplayBg
+value {
+  "$(DEVN)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 480
+y 2
+w 120
+h 25
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "Schroeder 2020/08/31"
+  "$(APP_NAME)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 90
+y 2
+w 120
+h 15
+font "helvetica-bold-r-10.0"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "CHANNEL: $(CHAN)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 2
+y 2
+w 120
+h 15
+font "helvetica-bold-r-10.0"
+fgColor index 0
+bgColor index 0
+useDisplayBg
+value {
+  "CARD: $(CARD)"
+}
 endObjectProperties
 
