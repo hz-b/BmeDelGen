@@ -1,8 +1,0 @@
-{
-    "alias": [
-        "BASE:EPICS_BASE"
-    ],
-    "module": [
-        "BASE:R3-14-12-2-6"
-    ]
-}
