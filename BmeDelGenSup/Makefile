@@ -26,7 +26,7 @@ DB += BmeDelGenScpi.template
 DB += ErrHistBufWave.template
 DB += ErrHistScpi.template
 
-DB_INSTALLS += $(TOP)/BmeDelGenSup/BmeDelGen.proto
+DB_INSTALLS += ../BmeDelGen.proto
 
 DL += BmeDelGenCard.edl
 DL += BmeDelGenChan.edl
