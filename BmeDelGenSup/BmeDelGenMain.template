@@ -22,6 +22,7 @@
 ####
 ## COMMON
 ####
+#APLY	Apply Parameters to all Delay Generators
 record(bo, "$(DEVN):aply") {
     field(DESC, "apply settings")
     field(DTYP, "stream")
@@ -39,6 +40,7 @@ record(bo, "$(DEVN):rcl") {
     field(FLNK, "$(DEVN):cmdRcl")
 }
 
+#*RCL i	Recall Parameter File.
 record(calcout, "$(DEVN):cmdRcl") {
     field(DESC, "recall settings")
     field(DTYP, "stream")
@@ -51,6 +53,7 @@ record(calcout, "$(DEVN):cmdRcl") {
     field(DISS, "INVALID")
 }
 
+#*SAV i	Save Parameter File
 record(bo, "$(DEVN):sav") {
     field(DESC, "save settings")
     field(DTYP, "stream")
@@ -69,11 +72,14 @@ record(longin, "$(DEVN):cfgIdx") {
     field(PINI, "YES")
 }
 
+#ACTV (?) i	Activate or Deactivate all Delay Generators
 record(bo, "$(DEVN):setActv") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "(de)activate del. generators")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDec(ACTV) $(P) -1")
+    field(ZNAM, "Deactivated")
+    field(ONAM, "Activated")
     field(VAL,  "1")
     field(PINI, "YES")
     field(DISV, "1")
@@ -87,16 +93,21 @@ record(bi, "$(DEVN):rdActv") {
     field(DESC, "activate status del .generators")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDec(ACTV) $(P) -1")
+    field(ZNAM, "Deactivated")
+    field(ONAM, "Activated")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
 }
 
+#LOCK(?) {i,k}	Request or query Lock
 record(bo, "$(DEVN):setLock") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "force lock local menus")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) lock(LOCK,1) $(P) -1")
+    field(ZNAM, "UNLOCKED")
+    field(ONAM, "LOCKED")
     field(VAL,  "1")
     field(PINI, "YES")
     field(DISV, "1")
@@ -109,6 +120,8 @@ record(bi, "$(DEVN):rdLock") {
     field(DESC, "lock status local menus")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDec(LOCK) $(P) -1")
+    field(ZNAM, "UNLOCKED")
+    field(ONAM, "LOCKED")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
