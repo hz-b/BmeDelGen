@@ -1,0 +1,102 @@
+##########################################################################
+# Copyright (c) 2017 Helmholtz-Zentrum Berlin für Materialien            #
+#                    und Energie GmbH, Germany (HZB)                     #
+# This program is free software: you can redistribute it and/or modify   #
+# it under the terms of the GNU General Public License as published by   #
+# the Free Software Foundation, either version 3 of the License, or      #
+# (at your option) any later version.                                    #
+#                                                                        #
+# This program is distributed in the hope that it will be useful,        #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          #
+# GNU General Public License for more details.                           #
+#                                                                        #
+# You should have received a copy of the GNU General Public License      #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>. #
+##########################################################################
+# Extra PVs for channel E and F
+# Note: PVs not tested, not part of forwarding at PON and not part of edm panels yet
+
+####
+## CHANNEL COMMANDS - extra records for channel E and F
+####
+#DCNB(?) i,k{,m}	Connect channels E or F to master/slave bus
+record(bo, "$(DEVN):setCnctBus$(CARD)$(CHAN)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "(dis)connect ch. => master/slave bus")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecChan(DISC,$(CARD),$(CHAN)) $(P) -1")
+    field(ZNAM, "DISCONNECTED")
+    field(ONAM, "CONNECTED")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdCnctBus$(CARD)$(CHAN)")
+}
+
+record(bi, "$(DEVN):rdCnctBus$(CARD)$(CHAN)") {
+    field(DESC, "(dis)connect ch. => master/slave bus")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecChan(DISC,$(CARD),$(CHAN)) $(P) -1")
+    field(ZNAM, "DISCONNECTED")
+    field(ONAM, "CONNECTED")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#DDGA(?) i,k{,m}	Gate Function of channels E or F
+# unused (SG08p4 only)
+
+#DISC(?) i,k{,m}	Disconnect channels E or F
+record(bo, "$(DEVN):setCnctCkt$(CARD)$(CHAN)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "(dis)connect ch. => delay circuit")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecChan(DISC,$(CARD),$(CHAN)) $(P) -1")
+    field(ZNAM, "CONNECTED")
+    field(ONAM, "DISCONNECTED")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdCnctCkt$(CARD)$(CHAN)")
+}
+
+record(bi, "$(DEVN):rdCnctCkt$(CARD)$(CHAN)") {
+    field(DESC, "(dis)connect ch. => delay circuit")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecChan(DISC,$(CARD),$(CHAN)) $(P) -1")
+    field(ZNAM, "CONNECTED")
+    field(ONAM, "DISCONNECTED")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+#DLIP(?) i,k{,m}	Set or query the Input Polarity of channels E or F
+record(bo, "$(DEVN):setInpPol$(CARD)$(CHAN)") {
+    info("autosaveFields_pass0", "VAL")
+    field(DESC, "input polarity")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) setDecChan(DLIP,$(CARD),$(CHAN)) $(P) -1")
+    field(ZNAM, "NEGATIVE")
+    field(ONAM, "POSITIVE")
+    field(VAL,  "0")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+    field(FLNK, "$(DEVN):rdInpPol$(CARD)$(CHAN)")
+}
+
+record(bi, "$(DEVN):rdInpPol$(CARD)$(CHAN)") {
+    field(DESC, "input polarity")
+    field(DTYP, "stream")
+    field(INP,  "@$(PROTO) getDecChan(DLIP,$(CARD),$(CHAN)) $(P) -1")
+    field(ZNAM, "NEGATIVE")
+    field(ONAM, "POSITIVE")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
