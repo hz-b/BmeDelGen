@@ -28,7 +28,7 @@ record (calcout, "$(DEVN):chkErrMsg") {
 }
 record(longin,"$(DEVN):rdErrCnt") {
     field(DTYP,"stream")
-    field(INP,"@$(PROTO) getSystErrCnt $(P) $(A)")
+    field(INP,"@$(PROTO) getSystErrCnt $(P) -1")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
@@ -45,7 +45,7 @@ record(waveform,"$(DEVN):systErrStr") {
     field(DTYP, "stream")
     field(FTVL, "CHAR")
     field(NELM, "256")
-    field(INP, "@$(PROTO) getSystErrNxt($(DEVN)) $(P) $(A)")
+    field(INP, "@$(PROTO) getSystErrNxt($(DEVN)) $(P) -1")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")

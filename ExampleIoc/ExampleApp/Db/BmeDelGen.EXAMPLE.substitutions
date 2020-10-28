@@ -21,7 +21,6 @@ global
     APP_NAME=ExampleApp
     DEVN=EXAMPLE
     P=EXAMPLE
-    A=-1
 }
 
 file BmeDelGenMain.template 

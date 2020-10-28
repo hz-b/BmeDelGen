@@ -25,7 +25,7 @@
 record (bo, "$(DEVN):aply") {
     field(DESC, "apply settings")
     field(DTYP, "stream")
-    field(OUT,  "@$(PROTO) cmd(APLY) $(P) $(A)")
+    field(OUT,  "@$(PROTO) cmd(APLY) $(P) -1")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
@@ -42,7 +42,7 @@ record (bo, "$(DEVN):rcl") {
 record (calcout, "$(DEVN):cmdRcl") {
     field(DESC, "recall settings")
     field(DTYP, "stream")
-    field(OUT,  "@$(PROTO) rcl($(DEVN):cfgIdx) $(P) $(A)")
+    field(OUT,  "@$(PROTO) rcl($(DEVN):cfgIdx) $(P) -1")
     field(INPA, "$(DEVN):rcl")
     field(OOPT, "Transition To Non-zero")
     field(CALC, "A")
@@ -54,7 +54,7 @@ record (calcout, "$(DEVN):cmdRcl") {
 record (bo, "$(DEVN):sav") {
     field(DESC, "save settings")
     field(DTYP, "stream")
-    field(OUT,  "@$(PROTO) sav($(DEVN):cfgIdx) $(P) $(A)")
+    field(OUT,  "@$(PROTO) sav($(DEVN):cfgIdx) $(P) -1")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
@@ -73,7 +73,7 @@ record (bo, "$(DEVN):setActv") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "(de)activate del. generators")
     field(DTYP, "stream")
-    field(OUT,  "@$(PROTO) setDec(ACTV) $(P) $(A)")
+    field(OUT,  "@$(PROTO) setDec(ACTV) $(P) -1")
     field(VAL,  "1")
     field(PINI, "YES")
     field(DISV, "1")
@@ -86,7 +86,7 @@ record (bi, "$(DEVN):rdActv") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "activate status del .generators")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) getDec(ACTV) $(P) $(A)")
+    field(INP,  "@$(PROTO) getDec(ACTV) $(P) -1")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
@@ -96,7 +96,7 @@ record (bo, "$(DEVN):setLock") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "force lock local menus")
     field(DTYP, "stream")
-    field(OUT,  "@$(PROTO) lock(LOCK,1) $(P) $(A)")
+    field(OUT,  "@$(PROTO) lock(LOCK,1) $(P) -1")
     field(VAL,  "1")
     field(PINI, "YES")
     field(DISV, "1")
@@ -108,7 +108,7 @@ record (bo, "$(DEVN):setLock") {
 record (bi, "$(DEVN):rdLock") {
     field(DESC, "lock status local menus")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) getDec(LOCK) $(P) $(A)")
+    field(INP,  "@$(PROTO) getDec(LOCK) $(P) -1")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
     field(DISS, "INVALID")
@@ -175,7 +175,7 @@ record(seq, "$(DEVN):init") {
 record(stringout, "$(DEVN):debug:cmdStr") {
     field(DESC, "debug interface to send test commands")
     field(DTYP, "stream")
-    field(OUT, "@$(PROTO) debugCmd $(P) $(A)")
+    field(OUT, "@$(PROTO) debugCmd $(P) -1")
 #    field(FLNK, "$(DEVN):debug:rbkStr.PROC")
 }
 
@@ -184,7 +184,7 @@ record(stringout, "$(DEVN):debug:cmdStr") {
 record(waveform, "$(DEVN):debug:rbkStr") {
     field(DESC, "debug readback")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) debugRbk $(P) $(A)")
+    field(INP,  "@$(PROTO) debugRbk $(P) -1")
     field(FTVL, "CHAR")
     field(NELM, "2048")
 }

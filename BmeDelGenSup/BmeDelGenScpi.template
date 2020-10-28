@@ -38,7 +38,7 @@ record (bo, "$(DEVN):disable") {
 record(waveform, "$(DEVN):rdIdn") {
     field(DESC, "device IDN")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) getIDN(127) $(P) $(A)")
+    field(INP,  "@$(PROTO) getIDN(127) $(P) -1")
     field(FTVL, "CHAR")
     field(NELM, "128")
     field(PINI, "YES")
@@ -47,7 +47,7 @@ record(waveform, "$(DEVN):rdIdn") {
 record(waveform, "$(DEVN):rdTst") {
     field(DESC, "selftest")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) selfTest(127) $(P) $(A)")
+    field(INP,  "@$(PROTO) selfTest(127) $(P) -1")
     field(FTVL, "CHAR")
     field(NELM, "128")
     field(PINI, "YES")
@@ -56,13 +56,13 @@ record(waveform, "$(DEVN):rdTst") {
 record(bo, "$(DEVN):cmdRst") {
     field(DESC, "hardware reset")
     field(DTYP, "stream")
-    field(OUT,  "@$(PROTO) cmd(*RST) $(P) $(A)")
+    field(OUT,  "@$(PROTO) cmd(*RST) $(P) -1")
 }
 
 record(bo, "$(DEVN):cmdCls") {
     field(DESC, "clear status")
     field(DTYP, "stream")
-    field(OUT,  "@$(PROTO) cmd(*CLS) $(P) $(A)")
+    field(OUT,  "@$(PROTO) cmd(*CLS) $(P) -1")
 }
 
 ####
@@ -71,20 +71,20 @@ record(bo, "$(DEVN):cmdCls") {
 record(mbbiDirect, "$(DEVN):rdStb") {
     field(DESC, "statusbyte")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) getDec(*STB) $(P) $(A)")
+    field(INP,  "@$(PROTO) getDec(*STB) $(P) -1")
 }
 
 record(mbbiDirect, "$(DEVN):rdEsr") {
     field(DESC, " event status")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) getDec(*ESR) $(P) $(A)")
+    field(INP,  "@$(PROTO) getDec(*ESR) $(P) -1")
 }
 
 # enable for ESB: QYE - query error, DDE - device dependent error, EXE - execution error, CME - command error
 record(mbboDirect, "$(DEVN):setEse") {
     field(DESC, "event status enable")
     field(DTYP, "stream")
-    field(OUT,  "@$(PROTO) setDec(*ESE) $(P) $(A)")
+    field(OUT,  "@$(PROTO) setDec(*ESE) $(P) -1")
     field(VAL,  "60")
     field(PINI, "YES")
     field(FLNK, "$(DEVN):rdEse.PROC")
@@ -93,24 +93,24 @@ record(mbboDirect, "$(DEVN):setEse") {
 record(mbbiDirect, "$(DEVN):rdEse") {
     field(DESC, "event status enable")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) getDec(*ESE) $(P) $(A)")
+    field(INP,  "@$(PROTO) getDec(*ESE) $(P) -1")
 }
 
 record(mbboDirect, "$(DEVN):setSre") {
     field(DESC, "service requests enable")
     field(DTYP, "stream")
-    field(OUT,  "@$(PROTO) setDec(*SRE) $(P) $(A)")
+    field(OUT,  "@$(PROTO) setDec(*SRE) $(P) -1")
     field(FLNK, "$(DEVN):rdSre.PROC")
 }
 
 record(mbbiDirect, "$(DEVN):rdSre") {
     field(DESC, "service requests enable")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) getDec(*SRE) $(P) $(A)")
+    field(INP,  "@$(PROTO) getDec(*SRE) $(P) -1")
 }
 
 record(longin, "$(DEVN):stOpc") {
     field(DESC, "operation completion status")
     field(DTYP, "stream")
-    field(INP,  "@$(PROTO) getDec(*OPC) $(P) $(A)")
+    field(INP,  "@$(PROTO) getDec(*OPC) $(P) -1")
 }
