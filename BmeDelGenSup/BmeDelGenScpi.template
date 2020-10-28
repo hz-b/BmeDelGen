@@ -23,7 +23,7 @@
 ## SCAN ROUTINE
 ####
 # disable scanning
-record (bo, "$(DEVN):disable") {
+record(bo, "$(DEVN):disable") {
     info("autosaveFields_pass0","VAL")
     field(DESC, "disable scan routine")
     field(ZNAM, "enabled")

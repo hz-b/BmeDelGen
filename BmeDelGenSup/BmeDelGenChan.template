@@ -18,7 +18,7 @@
 ####
 ## FWD SETTINGS
 ####
-record (calcout, "$(DEVN):chkPon$(CARD)$(CHAN)") {
+record(calcout, "$(DEVN):chkPon$(CARD)$(CHAN)") {
     field(DESC, "init channel after power on")
     field(INPA, "$(DEVN):rdEsr.B7 CPP")
     field(OOPT, "When Non-zero")
@@ -29,7 +29,7 @@ record (calcout, "$(DEVN):chkPon$(CARD)$(CHAN)") {
     field(DISS, "INVALID")
 }
 
-record (seq, "$(DEVN):fwdInit$(CARD)$(CHAN)") {
+record(seq, "$(DEVN):fwdInit$(CARD)$(CHAN)") {
     field(DESC, "fwd settings")
     field(SELM, "All")
     field(LNK1, "$(DEVN):setGo$(CARD)$(CHAN).PROC")
@@ -49,7 +49,7 @@ record (seq, "$(DEVN):fwdInit$(CARD)$(CHAN)") {
     field(FLNK, "$(DEVN):fwdInit2$(CARD)$(CHAN)")
 }
 
-record (seq, "$(DEVN):fwdInit2$(CARD)$(CHAN)") {
+record(seq, "$(DEVN):fwdInit2$(CARD)$(CHAN)") {
     field(DESC, "fwd settings")
     field(SELM, "All")
     field(LNK1, "$(DEVN):setIntlT$(CARD)$(CHAN).PROC")
@@ -61,7 +61,7 @@ record (seq, "$(DEVN):fwdInit2$(CARD)$(CHAN)") {
 ####
 ## RECALL PARAMETERS FROM FILE
 ####
-record (calcout, "$(DEVN):chkRcl$(CARD)$(CHAN)") {
+record(calcout, "$(DEVN):chkRcl$(CARD)$(CHAN)") {
     field(DESC, "check to recall channel settings")
     field(INPA, "$(DEVN):rcl CP")
     field(OOPT, "Transition To Zero")
@@ -72,7 +72,7 @@ record (calcout, "$(DEVN):chkRcl$(CARD)$(CHAN)") {
     field(DISS, "INVALID")
 }
 
-record (bi, "$(DEVN):rcl$(CARD)$(CHAN)") {
+record(bi, "$(DEVN):rcl$(CARD)$(CHAN)") {
     field(DESC, "recall channel settings")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) rclChan($(DEVN),$(CARD),$(CHAN),$(LINK)) $(P) -1")
@@ -356,7 +356,7 @@ record(bi, "$(DEVN):rdIntlT$(CARD)$(CHAN)") {
 }
 
 #LINK(?) i,k{,m}	Link Channels, this will be loaded twice and will just be overwritten
-record (mbbo, "$(DEVN):selLink$(CARD)$(LINK)") {
+record(mbbo, "$(DEVN):selLink$(CARD)$(LINK)") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "linking of 2 channels")
     field(OUT,  "@$(PROTO) setStrChan(LINK,$(CARD),$(LINK)) $(P) -1")
@@ -376,7 +376,7 @@ record (mbbo, "$(DEVN):selLink$(CARD)$(LINK)") {
     field(FLNK, "$(DEVN):stLink$(CARD)$(LINK)")
 }
 
-record (mbbi, "$(DEVN):stLink$(CARD)$(LINK)") {
+record(mbbi, "$(DEVN):stLink$(CARD)$(LINK)") {
     field(DESC, "linking of 2 channels")
     field(INP,  "@$(PROTO) getStrChan(LINK,$(CARD),$(LINK)) $(P) -1")
     field(DTYP, "stream")

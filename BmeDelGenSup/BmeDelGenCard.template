@@ -18,7 +18,7 @@
 ####
 ## FWD SETTINGS
 ####
-record (calcout, "$(DEVN):chkPon$(CARD)") {
+record(calcout, "$(DEVN):chkPon$(CARD)") {
     field(DESC, "init card after power on")
     field(INPA, "$(DEVN):rdEsr.B7 CPP")
     field(OOPT, "When Non-zero")
@@ -29,7 +29,7 @@ record (calcout, "$(DEVN):chkPon$(CARD)") {
     field(DISS, "INVALID")
 }
 
-record (seq, "$(DEVN):fwdInit$(CARD)") {
+record(seq, "$(DEVN):fwdInit$(CARD)") {
     field(DESC, "fwd settings")
     field(SELM, "All")
     field(LNK1, "$(DEVN):rdDnam$(CARD).PROC")
@@ -44,7 +44,7 @@ record (seq, "$(DEVN):fwdInit$(CARD)") {
     field(FLNK, "$(DEVN):fwdInitTrig$(CARD).PROC")
 }
 
-record (seq, "$(DEVN):fwdInitTrig$(CARD)") {
+record(seq, "$(DEVN):fwdInitTrig$(CARD)") {
     field(DESC, "fwd settings")
     field(SELM, "All")
     field(LNK1, "$(DEVN):setBurstCount$(CARD).PROC")
@@ -63,7 +63,7 @@ record (seq, "$(DEVN):fwdInitTrig$(CARD)") {
     field(FLNK, "$(DEVN):fwdInitTrig2$(CARD).PROC")
 }
 
-record (seq, "$(DEVN):fwdInitTrig2$(CARD)") {
+record(seq, "$(DEVN):fwdInitTrig2$(CARD)") {
     field(DESC, "fwd settings")
     field(SELM, "All")
     field(LNK1, "$(DEVN):setExtClkDiv$(CARD).PROC")
@@ -76,7 +76,7 @@ record (seq, "$(DEVN):fwdInitTrig2$(CARD)") {
     field(FLNK, "$(DEVN):fwdInitGate$(CARD).PROC")
 }
 
-record (seq, "$(DEVN):fwdInitGate$(CARD)") {
+record(seq, "$(DEVN):fwdInitGate$(CARD)") {
     field(DESC, "fwd gate settings")
     field(SELM, "All")
     field(LNK1, "$(DEVN):setGateSource$(CARD).PROC")
@@ -92,7 +92,7 @@ record (seq, "$(DEVN):fwdInitGate$(CARD)") {
 ####
 ## RECALL PARAMETERS FROM FILE
 ####
-record (calcout, "$(DEVN):chkRcl$(CARD)$") {
+record(calcout, "$(DEVN):chkRcl$(CARD)$") {
     field(DESC, "check to recall card settings")
     field(INPA, "$(DEVN):rcl CP")
     field(OOPT, "Transition To Zero")
@@ -103,7 +103,7 @@ record (calcout, "$(DEVN):chkRcl$(CARD)$") {
     field(DISS, "INVALID")
 }
 
-record (bi, "$(DEVN):rcl$(CARD)") {
+record(bi, "$(DEVN):rcl$(CARD)") {
     field(DESC, "recall card settings")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) rclCard($(DEVN),$(CARD)) $(P) -1")
@@ -115,7 +115,7 @@ record (bi, "$(DEVN):rcl$(CARD)") {
 
 # further recall parameters done through input records
 # writing into mbbo via streamdevice redirect would not consider value assignment
-record (seq, "$(DEVN):fwdRcl$(CARD)") {
+record(seq, "$(DEVN):fwdRcl$(CARD)") {
     field(DESC, "fwd gate settings")
     field(SELM, "All")
     field(LNK1, "$(DEVN):rclExtClkMult$(CARD).PROC")

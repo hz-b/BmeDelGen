@@ -22,7 +22,7 @@
 ####
 ## COMMON
 ####
-record (bo, "$(DEVN):aply") {
+record(bo, "$(DEVN):aply") {
     field(DESC, "apply settings")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) cmd(APLY) $(P) -1")
@@ -31,7 +31,7 @@ record (bo, "$(DEVN):aply") {
     field(DISS, "INVALID")
 }
 
-record (bo, "$(DEVN):rcl") {
+record(bo, "$(DEVN):rcl") {
     field(DESC, "recall settings")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
@@ -39,7 +39,7 @@ record (bo, "$(DEVN):rcl") {
     field(FLNK, "$(DEVN):cmdRcl")
 }
 
-record (calcout, "$(DEVN):cmdRcl") {
+record(calcout, "$(DEVN):cmdRcl") {
     field(DESC, "recall settings")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) rcl($(DEVN):cfgIdx) $(P) -1")
@@ -51,7 +51,7 @@ record (calcout, "$(DEVN):cmdRcl") {
     field(DISS, "INVALID")
 }
 
-record (bo, "$(DEVN):sav") {
+record(bo, "$(DEVN):sav") {
     field(DESC, "save settings")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) sav($(DEVN):cfgIdx) $(P) -1")
@@ -69,7 +69,7 @@ record(longin, "$(DEVN):cfgIdx") {
     field(PINI, "YES")
 }
 
-record (bo, "$(DEVN):setActv") {
+record(bo, "$(DEVN):setActv") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "(de)activate del. generators")
     field(DTYP, "stream")
@@ -82,7 +82,7 @@ record (bo, "$(DEVN):setActv") {
     field(FLNK, "$(DEVN):rdActv.PROC")
 }
 
-record (bi, "$(DEVN):rdActv") {
+record(bi, "$(DEVN):rdActv") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "activate status del .generators")
     field(DTYP, "stream")
@@ -92,7 +92,7 @@ record (bi, "$(DEVN):rdActv") {
     field(DISS, "INVALID")
 }
 
-record (bo, "$(DEVN):setLock") {
+record(bo, "$(DEVN):setLock") {
     info("autosaveFields_pass0", "VAL")
     field(DESC, "force lock local menus")
     field(DTYP, "stream")
@@ -105,7 +105,7 @@ record (bo, "$(DEVN):setLock") {
     field(FLNK, "$(DEVN):rdLock.PROC")
 }
 
-record (bi, "$(DEVN):rdLock") {
+record(bi, "$(DEVN):rdLock") {
     field(DESC, "lock status local menus")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDec(LOCK) $(P) -1")
@@ -118,7 +118,7 @@ record (bi, "$(DEVN):rdLock") {
 ## SCAN ROUTINE
 ####
 # cyclic scanning
-record (seq, "$(DEVN):fwdUpd") {
+record(seq, "$(DEVN):fwdUpd") {
     field(DESC, "scan routine")
     field(SELM, "All")
     field(LNK1, "$(DEVN):rdStb.PROC")
@@ -144,7 +144,7 @@ record(seq, "$(DEVN):chkStatus") {
 }
 
 # check Power on - done in chan and card templates now
-record (calcout, "$(DEVN):chkPon") {
+record(calcout, "$(DEVN):chkPon") {
     field(DESC, "init device after power on")
     field(INPA, "$(DEVN):rdEsr.B7 NPP")
     field(OOPT, "When Non-zero")

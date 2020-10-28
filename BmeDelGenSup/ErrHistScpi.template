@@ -19,7 +19,7 @@
 ## ERROR QUEUE / FLNK CHAIN
 ####
 # read error message if bit 2 in STB set
-record (calcout, "$(DEVN):chkErrMsg") {
+record(calcout, "$(DEVN):chkErrMsg") {
     field(DESC, "check for new error messages")
     field(INPA, "$(DEVN):rdStb.B2")
     field(OOPT, "When Non-zero")
@@ -51,6 +51,6 @@ record(waveform,"$(DEVN):systErrStr") {
     field(DISS, "INVALID")
     field(FLNK, "$(DEVN):systErrNum.PROC")
 }
-record (longin, "$(DEVN):systErrNum") {
+record(longin, "$(DEVN):systErrNum") {
     field(FLNK, "$(DEVN):fwdUpdErrBuf.PROC")
 }
