@@ -35,7 +35,7 @@ record(bo, "$(DEVN):disable") {
 ####
 ## COMMON
 ####
-record(waveform, "$(DEVN):rdIdn") {
+record(waveform, "$(DEVN):idn") {
     field(DESC, "device IDN")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getIDN(127) $(P) -1")

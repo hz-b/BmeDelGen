@@ -72,7 +72,7 @@ x 0
 y 25
 w 960
 h 12
-controlPv "EXAMPLE:rdIdn"
+controlPv "EXAMPLE:idn"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 0

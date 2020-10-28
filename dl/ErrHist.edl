@@ -68,7 +68,7 @@ x 0
 y 30
 w 630
 h 10
-controlPv "$(DEVN):rdIdn"
+controlPv "$(DEVN):idn"
 font "helvetica-medium-r-8.0"
 fontAlign "center"
 fgColor index 14

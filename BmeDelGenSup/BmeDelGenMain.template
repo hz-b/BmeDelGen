@@ -160,7 +160,7 @@ record(seq, "$(DEVN):init") {
     field(SELM, "All")
     field(LNK1, "$(DEVN):setLock.PROC")
     field(LNK2, "$(DEVN):setActv.PROC")
-    field(LNK3, "$(DEVN):rdIdn.PROC")
+    field(LNK3, "$(DEVN):idn.PROC")
     field(LNK4, "$(DEVN):rdTst.PROC")
     field(DISV, "1")
     field(SDIS, "$(DEVN):disable NMS")
