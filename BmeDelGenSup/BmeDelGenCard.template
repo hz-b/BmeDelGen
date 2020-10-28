@@ -302,7 +302,7 @@ record(longin, "$(DEVN):rdIntlClkDiv$(CARD)") {
 #CMSY(?) i{,k}	Set or query the Resynchronization of the Clock Multiplier
 record(bo, "$(DEVN):setSyncClkM$(CARD)") {
     info("autosaveFields_pass0", "VAL")
-    field(DESC, "Resync. of the Clock Multiplier")
+    field(DESC, "Resync. of Clock Multiplier")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDecCard(CMSY,$(CARD)) $(P) -1")
     field(ZNAM, "OFF")
@@ -315,7 +315,7 @@ record(bo, "$(DEVN):setSyncClkM$(CARD)") {
 }
 
 record(bi, "$(DEVN):rdSyncClkM$(CARD)") {
-    field(DESC, "Resync. of the Clock Multiplier")
+    field(DESC, "Resync. of Clock Multiplier")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDecCard(CMSY,$(CARD)) $(P) -1")
     field(ZNAM, "OFF")
@@ -328,7 +328,7 @@ record(bi, "$(DEVN):rdSyncClkM$(CARD)") {
 #CPSY(?) i{,k}	Set or query the Resynchronization of the Clock Prescaler
 record(bo, "$(DEVN):setSyncClkP$(CARD)") {
     info("autosaveFields_pass0", "VAL")
-    field(DESC, "Resynchronization of the Clock Prescaler")
+    field(DESC, "Resync. of Clock Prescaler")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDecCard(CPSY,$(CARD)) $(P) -1")
     field(ZNAM, "OFF")
@@ -341,7 +341,7 @@ record(bo, "$(DEVN):setSyncClkP$(CARD)") {
 }
 
 record(bi, "$(DEVN):rdSyncClkP$(CARD)") {
-    field(DESC, "Resynchronization of the Clock Prescaler")
+    field(DESC, "Resync. of Clock Prescaler")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDecCard(CPSY,$(CARD)) $(P) -1")
     field(ZNAM, "OFF")
@@ -353,7 +353,7 @@ record(bi, "$(DEVN):rdSyncClkP$(CARD)") {
 
 #CSRC(?) i{,k}	Clock Source
 record(mbbi, "$(DEVN):rclClkSrc$(CARD)") {
-    field(DESC, "recall Resynchronize Clock Signal")
+    field(DESC, "recall Resync. Clock Signal")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDecCard(CSRC,$(CARD)) $(P) -1")
     field(ZRVL, "1")
@@ -382,7 +382,7 @@ record(longout, "$(DEVN):fwdRclClkSrc$(CARD)") {
 
 record(mbbo, "$(DEVN):setClkSrc$(CARD)") {
     info("autosaveFields_pass0", "VAL")
-    field(DESC, "Resynchronize Clock Signal")
+    field(DESC, "Resync. Clock Signal")
     field(DTYP, "stream")
     field(OUT,  "@$(PROTO) setDecCard(CSRC,$(CARD)) $(P) -1")
     field(ZRVL, "1")
@@ -402,7 +402,7 @@ record(mbbo, "$(DEVN):setClkSrc$(CARD)") {
 }
 
 record(mbbi, "$(DEVN):rdClkSrc$(CARD)") {
-    field(DESC, "Resynchronize Clock Signal")
+    field(DESC, "Resync. Clock Signal")
     field(DTYP, "stream")
     field(INP,  "@$(PROTO) getDecCard(CSRC,$(CARD)) $(P) -1")
     field(ZRVL, "1")
