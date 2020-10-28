@@ -22,6 +22,21 @@ botShadowColor index 6
 endScreenProperties
 
 
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 960
+h 40
+lineColor index 14
+fill
+fillColor index 24
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -34,11 +49,36 @@ w 960
 h 25
 font "helvetica-bold-r-18.0"
 fontAlign "center"
+fgColor index 2
+bgColor index 24
+useDisplayBg
+value {
+  "$(DEVN)"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 0
+y 25
+w 960
+h 14
+controlPv "$(DEVN):idn"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
 fgColor index 0
 bgColor index 24
-value {
-  "EXAMPLE"
-}
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "monitors"
 endObjectProperties
 
 # (Static Text)
@@ -57,32 +97,9 @@ fgColor index 0
 bgColor index 0
 useDisplayBg
 value {
-  "Schroeder 2017/11/24"
-  "BmeDelGenApp"
+  "Schroeder 2020/08/31"
+  "SlicingApp"
 }
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 0
-y 25
-w 960
-h 12
-controlPv "EXAMPLE:idn"
-font "helvetica-medium-r-10.0"
-fontAlign "center"
-fgColor index 0
-bgColor index 24
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "monitors"
 endObjectProperties
 
 # (Static Text)
@@ -116,11 +133,11 @@ x 110
 y 60
 w 100
 h 14
-controlPv "EXAMPLE:setDelay$(CARD)A"
+controlPv "$(DEVN):setDelay$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -180,7 +197,7 @@ x 110
 y 80
 w 100
 h 14
-controlPv "EXAMPLE:rdDelay$(CARD)A"
+controlPv "$(DEVN):rdDelay$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -220,11 +237,11 @@ x 215
 y 60
 w 100
 h 14
-controlPv "EXAMPLE:setPulseWidth$(CARD)A"
+controlPv "$(DEVN):setPulseWidth$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -244,7 +261,7 @@ x 215
 y 80
 w 100
 h 14
-controlPv "EXAMPLE:rdPulseWidth$(CARD)A"
+controlPv "$(DEVN):rdPulseWidth$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -290,7 +307,7 @@ x 5
 y 80
 w 100
 h 14
-controlPv "EXAMPLE:rdCnam$(CARD)A"
+controlPv "$(DEVN):rdCnam$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -316,11 +333,11 @@ x 320
 y 60
 w 50
 h 14
-controlPv "EXAMPLE:setModCount$(CARD)A"
+controlPv "$(DEVN):setModCount$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -340,7 +357,7 @@ x 320
 y 80
 w 50
 h 14
-controlPv "EXAMPLE:rdModCount$(CARD)A"
+controlPv "$(DEVN):rdModCount$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -386,11 +403,11 @@ x 375
 y 60
 w 50
 h 14
-controlPv "EXAMPLE:setModOff$(CARD)A"
+controlPv "$(DEVN):setModOff$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -410,7 +427,7 @@ x 375
 y 80
 w 50
 h 14
-controlPv "EXAMPLE:rdModOff$(CARD)A"
+controlPv "$(DEVN):rdModOff$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -456,11 +473,11 @@ x 510
 y 60
 w 50
 h 14
-controlPv "EXAMPLE:setStepBack$(CARD)A"
+controlPv "$(DEVN):setStepBack$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -480,7 +497,7 @@ x 510
 y 80
 w 50
 h 14
-controlPv "EXAMPLE:rdStepBack$(CARD)A"
+controlPv "$(DEVN):rdStepBack$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -541,8 +558,9 @@ menuLabel {
   0 "GoSignal Settings"
 }
 symbols {
-  0 "DEVN=EXAMPLE,APP_NAME=BmeDelGenApp,CARD=$(CARD),CHAN=A"
+  0 "DEVN=$(DEVN),APP_NAME=SlicingApp,CARD=$(CARD),CHAN=A"
 }
+icon
 endObjectProperties
 
 # (Menu Button)
@@ -556,11 +574,11 @@ y 59
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:selLink$(CARD)AB"
+controlPv "$(DEVN):selLink$(CARD)AB"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -574,7 +592,7 @@ x 430
 y 80
 w 75
 h 14
-controlPv "EXAMPLE:stLink$(CARD)AB"
+controlPv "$(DEVN):stLink$(CARD)AB"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -621,11 +639,11 @@ y 59
 w 120
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setDelClk$(CARD)A"
+controlPv "$(DEVN):setDelClk$(CARD)A"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -639,7 +657,7 @@ x 565
 y 80
 w 120
 h 14
-controlPv "EXAMPLE:rdDelClk$(CARD)A"
+controlPv "$(DEVN):rdDelClk$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -686,11 +704,11 @@ y 59
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setIntlT$(CARD)A"
+controlPv "$(DEVN):setIntlT$(CARD)A"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -704,7 +722,7 @@ x 795
 y 80
 w 75
 h 14
-controlPv "EXAMPLE:rdIntlT$(CARD)A"
+controlPv "$(DEVN):rdIntlT$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -751,11 +769,11 @@ y 59
 w 100
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setOutPol$(CARD)A"
+controlPv "$(DEVN):setOutPol$(CARD)A"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -769,7 +787,7 @@ x 690
 y 80
 w 100
 h 14
-controlPv "EXAMPLE:rdOutPol$(CARD)A"
+controlPv "$(DEVN):rdOutPol$(CARD)A"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -817,11 +835,11 @@ x 110
 y 122
 w 100
 h 14
-controlPv "EXAMPLE:setDelay$(CARD)B"
+controlPv "$(DEVN):setDelay$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -881,7 +899,7 @@ x 110
 y 142
 w 100
 h 14
-controlPv "EXAMPLE:rdDelay$(CARD)B"
+controlPv "$(DEVN):rdDelay$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -921,11 +939,11 @@ x 215
 y 122
 w 100
 h 14
-controlPv "EXAMPLE:setPulseWidth$(CARD)B"
+controlPv "$(DEVN):setPulseWidth$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -945,7 +963,7 @@ x 215
 y 142
 w 100
 h 14
-controlPv "EXAMPLE:rdPulseWidth$(CARD)B"
+controlPv "$(DEVN):rdPulseWidth$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -991,7 +1009,7 @@ x 5
 y 142
 w 100
 h 14
-controlPv "EXAMPLE:rdCnam$(CARD)B"
+controlPv "$(DEVN):rdCnam$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1017,11 +1035,11 @@ x 320
 y 122
 w 50
 h 14
-controlPv "EXAMPLE:setModCount$(CARD)B"
+controlPv "$(DEVN):setModCount$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -1041,7 +1059,7 @@ x 320
 y 142
 w 50
 h 14
-controlPv "EXAMPLE:rdModCount$(CARD)B"
+controlPv "$(DEVN):rdModCount$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1087,11 +1105,11 @@ x 375
 y 122
 w 50
 h 14
-controlPv "EXAMPLE:setModOff$(CARD)B"
+controlPv "$(DEVN):setModOff$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -1111,7 +1129,7 @@ x 375
 y 142
 w 50
 h 14
-controlPv "EXAMPLE:rdModOff$(CARD)B"
+controlPv "$(DEVN):rdModOff$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1157,11 +1175,11 @@ x 510
 y 122
 w 50
 h 14
-controlPv "EXAMPLE:setStepBack$(CARD)B"
+controlPv "$(DEVN):setStepBack$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -1181,7 +1199,7 @@ x 510
 y 142
 w 50
 h 14
-controlPv "EXAMPLE:rdStepBack$(CARD)B"
+controlPv "$(DEVN):rdStepBack$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1242,8 +1260,9 @@ menuLabel {
   0 "GoSignal Settings"
 }
 symbols {
-  0 "DEVN=EXAMPLE,APP_NAME=BmeDelGenApp,CARD=$(CARD),CHAN=B"
+  0 "DEVN=$(DEVN),APP_NAME=SlicingApp,CARD=$(CARD),CHAN=B"
 }
+icon
 endObjectProperties
 
 # (Menu Button)
@@ -1257,11 +1276,11 @@ y 121
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:selLink$(CARD)AB"
+controlPv "$(DEVN):selLink$(CARD)AB"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -1275,7 +1294,7 @@ x 430
 y 142
 w 75
 h 14
-controlPv "EXAMPLE:stLink$(CARD)AB"
+controlPv "$(DEVN):stLink$(CARD)AB"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1322,11 +1341,11 @@ y 121
 w 120
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setDelClk$(CARD)B"
+controlPv "$(DEVN):setDelClk$(CARD)B"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -1340,7 +1359,7 @@ x 565
 y 142
 w 120
 h 14
-controlPv "EXAMPLE:rdDelClk$(CARD)B"
+controlPv "$(DEVN):rdDelClk$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1387,11 +1406,11 @@ y 121
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setIntlT$(CARD)B"
+controlPv "$(DEVN):setIntlT$(CARD)B"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -1405,7 +1424,7 @@ x 795
 y 142
 w 75
 h 14
-controlPv "EXAMPLE:rdIntlT$(CARD)B"
+controlPv "$(DEVN):rdIntlT$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1452,11 +1471,11 @@ y 121
 w 100
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setOutPol$(CARD)B"
+controlPv "$(DEVN):setOutPol$(CARD)B"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -1470,7 +1489,7 @@ x 690
 y 142
 w 100
 h 14
-controlPv "EXAMPLE:rdOutPol$(CARD)B"
+controlPv "$(DEVN):rdOutPol$(CARD)B"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1518,11 +1537,11 @@ x 110
 y 184
 w 100
 h 14
-controlPv "EXAMPLE:setDelay$(CARD)C"
+controlPv "$(DEVN):setDelay$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -1582,7 +1601,7 @@ x 110
 y 204
 w 100
 h 14
-controlPv "EXAMPLE:rdDelay$(CARD)C"
+controlPv "$(DEVN):rdDelay$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1622,11 +1641,11 @@ x 215
 y 184
 w 100
 h 14
-controlPv "EXAMPLE:setPulseWidth$(CARD)C"
+controlPv "$(DEVN):setPulseWidth$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -1646,7 +1665,7 @@ x 215
 y 204
 w 100
 h 14
-controlPv "EXAMPLE:rdPulseWidth$(CARD)C"
+controlPv "$(DEVN):rdPulseWidth$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1692,7 +1711,7 @@ x 5
 y 204
 w 100
 h 14
-controlPv "EXAMPLE:rdCnam$(CARD)C"
+controlPv "$(DEVN):rdCnam$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1718,11 +1737,11 @@ x 320
 y 184
 w 50
 h 14
-controlPv "EXAMPLE:setModCount$(CARD)C"
+controlPv "$(DEVN):setModCount$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -1742,7 +1761,7 @@ x 320
 y 204
 w 50
 h 14
-controlPv "EXAMPLE:rdModCount$(CARD)C"
+controlPv "$(DEVN):rdModCount$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1788,11 +1807,11 @@ x 375
 y 184
 w 50
 h 14
-controlPv "EXAMPLE:setModOff$(CARD)C"
+controlPv "$(DEVN):setModOff$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -1812,7 +1831,7 @@ x 375
 y 204
 w 50
 h 14
-controlPv "EXAMPLE:rdModOff$(CARD)C"
+controlPv "$(DEVN):rdModOff$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1858,11 +1877,11 @@ x 510
 y 184
 w 50
 h 14
-controlPv "EXAMPLE:setStepBack$(CARD)C"
+controlPv "$(DEVN):setStepBack$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -1882,7 +1901,7 @@ x 510
 y 204
 w 50
 h 14
-controlPv "EXAMPLE:rdStepBack$(CARD)C"
+controlPv "$(DEVN):rdStepBack$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -1943,8 +1962,9 @@ menuLabel {
   0 "GoSignal Settings"
 }
 symbols {
-  0 "DEVN=EXAMPLE,APP_NAME=BmeDelGenApp,CARD=$(CARD),CHAN=C"
+  0 "DEVN=$(DEVN),APP_NAME=SlicingApp,CARD=$(CARD),CHAN=C"
 }
+icon
 endObjectProperties
 
 # (Menu Button)
@@ -1958,11 +1978,11 @@ y 183
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:selLink$(CARD)CD"
+controlPv "$(DEVN):selLink$(CARD)CD"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -1976,7 +1996,7 @@ x 430
 y 204
 w 75
 h 14
-controlPv "EXAMPLE:stLink$(CARD)CD"
+controlPv "$(DEVN):stLink$(CARD)CD"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2023,11 +2043,11 @@ y 183
 w 120
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setDelClk$(CARD)C"
+controlPv "$(DEVN):setDelClk$(CARD)C"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -2041,7 +2061,7 @@ x 565
 y 204
 w 120
 h 14
-controlPv "EXAMPLE:rdDelClk$(CARD)C"
+controlPv "$(DEVN):rdDelClk$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2088,11 +2108,11 @@ y 183
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setIntlT$(CARD)C"
+controlPv "$(DEVN):setIntlT$(CARD)C"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -2106,7 +2126,7 @@ x 795
 y 204
 w 75
 h 14
-controlPv "EXAMPLE:rdIntlT$(CARD)C"
+controlPv "$(DEVN):rdIntlT$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2153,11 +2173,11 @@ y 183
 w 100
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setOutPol$(CARD)C"
+controlPv "$(DEVN):setOutPol$(CARD)C"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -2171,7 +2191,7 @@ x 690
 y 204
 w 100
 h 14
-controlPv "EXAMPLE:rdOutPol$(CARD)C"
+controlPv "$(DEVN):rdOutPol$(CARD)C"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2219,11 +2239,11 @@ x 110
 y 246
 w 100
 h 14
-controlPv "EXAMPLE:setDelay$(CARD)D"
+controlPv "$(DEVN):setDelay$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -2283,7 +2303,7 @@ x 110
 y 266
 w 100
 h 14
-controlPv "EXAMPLE:rdDelay$(CARD)D"
+controlPv "$(DEVN):rdDelay$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2323,11 +2343,11 @@ x 215
 y 246
 w 100
 h 14
-controlPv "EXAMPLE:setPulseWidth$(CARD)D"
+controlPv "$(DEVN):setPulseWidth$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -2347,7 +2367,7 @@ x 215
 y 266
 w 100
 h 14
-controlPv "EXAMPLE:rdPulseWidth$(CARD)D"
+controlPv "$(DEVN):rdPulseWidth$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2393,7 +2413,7 @@ x 5
 y 266
 w 100
 h 14
-controlPv "EXAMPLE:rdCnam$(CARD)D"
+controlPv "$(DEVN):rdCnam$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2419,11 +2439,11 @@ x 320
 y 246
 w 50
 h 14
-controlPv "EXAMPLE:setModCount$(CARD)D"
+controlPv "$(DEVN):setModCount$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -2443,7 +2463,7 @@ x 320
 y 266
 w 50
 h 14
-controlPv "EXAMPLE:rdModCount$(CARD)D"
+controlPv "$(DEVN):rdModCount$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2489,11 +2509,11 @@ x 375
 y 246
 w 50
 h 14
-controlPv "EXAMPLE:setModOff$(CARD)D"
+controlPv "$(DEVN):setModOff$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -2513,7 +2533,7 @@ x 375
 y 266
 w 50
 h 14
-controlPv "EXAMPLE:rdModOff$(CARD)D"
+controlPv "$(DEVN):rdModOff$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2559,11 +2579,11 @@ x 510
 y 246
 w 50
 h 14
-controlPv "EXAMPLE:setStepBack$(CARD)D"
+controlPv "$(DEVN):setStepBack$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -2583,7 +2603,7 @@ x 510
 y 266
 w 50
 h 14
-controlPv "EXAMPLE:rdStepBack$(CARD)D"
+controlPv "$(DEVN):rdStepBack$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2644,8 +2664,9 @@ menuLabel {
   0 "GoSignal Settings"
 }
 symbols {
-  0 "DEVN=EXAMPLE,APP_NAME=BmeDelGenApp,CARD=$(CARD),CHAN=D"
+  0 "DEVN=$(DEVN),APP_NAME=SlicingApp,CARD=$(CARD),CHAN=D"
 }
+icon
 endObjectProperties
 
 # (Menu Button)
@@ -2659,11 +2680,11 @@ y 245
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:selLink$(CARD)CD"
+controlPv "$(DEVN):selLink$(CARD)CD"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -2677,7 +2698,7 @@ x 430
 y 266
 w 75
 h 14
-controlPv "EXAMPLE:stLink$(CARD)CD"
+controlPv "$(DEVN):stLink$(CARD)CD"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2724,11 +2745,11 @@ y 245
 w 120
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setDelClk$(CARD)D"
+controlPv "$(DEVN):setDelClk$(CARD)D"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -2742,7 +2763,7 @@ x 565
 y 266
 w 120
 h 14
-controlPv "EXAMPLE:rdDelClk$(CARD)D"
+controlPv "$(DEVN):rdDelClk$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2789,11 +2810,11 @@ y 245
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setIntlT$(CARD)D"
+controlPv "$(DEVN):setIntlT$(CARD)D"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -2807,7 +2828,7 @@ x 795
 y 266
 w 75
 h 14
-controlPv "EXAMPLE:rdIntlT$(CARD)D"
+controlPv "$(DEVN):rdIntlT$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2854,11 +2875,11 @@ y 245
 w 100
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setOutPol$(CARD)D"
+controlPv "$(DEVN):setOutPol$(CARD)D"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -2872,7 +2893,7 @@ x 690
 y 266
 w 100
 h 14
-controlPv "EXAMPLE:rdOutPol$(CARD)D"
+controlPv "$(DEVN):rdOutPol$(CARD)D"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -2920,11 +2941,11 @@ x 110
 y 308
 w 100
 h 14
-controlPv "EXAMPLE:setDelay$(CARD)E"
+controlPv "$(DEVN):setDelay$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -2984,7 +3005,7 @@ x 110
 y 328
 w 100
 h 14
-controlPv "EXAMPLE:rdDelay$(CARD)E"
+controlPv "$(DEVN):rdDelay$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3024,11 +3045,11 @@ x 215
 y 308
 w 100
 h 14
-controlPv "EXAMPLE:setPulseWidth$(CARD)E"
+controlPv "$(DEVN):setPulseWidth$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -3048,7 +3069,7 @@ x 215
 y 328
 w 100
 h 14
-controlPv "EXAMPLE:rdPulseWidth$(CARD)E"
+controlPv "$(DEVN):rdPulseWidth$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3094,7 +3115,7 @@ x 5
 y 328
 w 100
 h 14
-controlPv "EXAMPLE:rdCnam$(CARD)E"
+controlPv "$(DEVN):rdCnam$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3120,11 +3141,11 @@ x 320
 y 308
 w 50
 h 14
-controlPv "EXAMPLE:setModCount$(CARD)E"
+controlPv "$(DEVN):setModCount$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -3144,7 +3165,7 @@ x 320
 y 328
 w 50
 h 14
-controlPv "EXAMPLE:rdModCount$(CARD)E"
+controlPv "$(DEVN):rdModCount$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3190,11 +3211,11 @@ x 375
 y 308
 w 50
 h 14
-controlPv "EXAMPLE:setModOff$(CARD)E"
+controlPv "$(DEVN):setModOff$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -3214,7 +3235,7 @@ x 375
 y 328
 w 50
 h 14
-controlPv "EXAMPLE:rdModOff$(CARD)E"
+controlPv "$(DEVN):rdModOff$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3260,11 +3281,11 @@ x 510
 y 308
 w 50
 h 14
-controlPv "EXAMPLE:setStepBack$(CARD)E"
+controlPv "$(DEVN):setStepBack$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -3284,7 +3305,7 @@ x 510
 y 328
 w 50
 h 14
-controlPv "EXAMPLE:rdStepBack$(CARD)E"
+controlPv "$(DEVN):rdStepBack$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3345,8 +3366,9 @@ menuLabel {
   0 "GoSignal Settings"
 }
 symbols {
-  0 "DEVN=EXAMPLE,APP_NAME=BmeDelGenApp,CARD=$(CARD),CHAN=E"
+  0 "DEVN=$(DEVN),APP_NAME=SlicingApp,CARD=$(CARD),CHAN=E"
 }
+icon
 endObjectProperties
 
 # (Menu Button)
@@ -3360,11 +3382,11 @@ y 307
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:selLink$(CARD)EF"
+controlPv "$(DEVN):selLink$(CARD)EF"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -3378,7 +3400,7 @@ x 430
 y 328
 w 75
 h 14
-controlPv "EXAMPLE:stLink$(CARD)EF"
+controlPv "$(DEVN):stLink$(CARD)EF"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3425,11 +3447,11 @@ y 307
 w 120
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setDelClk$(CARD)E"
+controlPv "$(DEVN):setDelClk$(CARD)E"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -3443,7 +3465,7 @@ x 565
 y 328
 w 120
 h 14
-controlPv "EXAMPLE:rdDelClk$(CARD)E"
+controlPv "$(DEVN):rdDelClk$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3490,11 +3512,11 @@ y 307
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setIntlT$(CARD)E"
+controlPv "$(DEVN):setIntlT$(CARD)E"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -3508,7 +3530,7 @@ x 795
 y 328
 w 75
 h 14
-controlPv "EXAMPLE:rdIntlT$(CARD)E"
+controlPv "$(DEVN):rdIntlT$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3555,11 +3577,11 @@ y 307
 w 100
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setOutPol$(CARD)E"
+controlPv "$(DEVN):setOutPol$(CARD)E"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -3573,7 +3595,7 @@ x 690
 y 328
 w 100
 h 14
-controlPv "EXAMPLE:rdOutPol$(CARD)E"
+controlPv "$(DEVN):rdOutPol$(CARD)E"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3621,11 +3643,11 @@ x 110
 y 370
 w 100
 h 14
-controlPv "EXAMPLE:setDelay$(CARD)F"
+controlPv "$(DEVN):setDelay$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -3685,7 +3707,7 @@ x 110
 y 390
 w 100
 h 14
-controlPv "EXAMPLE:rdDelay$(CARD)F"
+controlPv "$(DEVN):rdDelay$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3725,11 +3747,11 @@ x 215
 y 370
 w 100
 h 14
-controlPv "EXAMPLE:setPulseWidth$(CARD)F"
+controlPv "$(DEVN):setPulseWidth$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -3749,7 +3771,7 @@ x 215
 y 390
 w 100
 h 14
-controlPv "EXAMPLE:rdPulseWidth$(CARD)F"
+controlPv "$(DEVN):rdPulseWidth$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3795,7 +3817,7 @@ x 5
 y 390
 w 100
 h 14
-controlPv "EXAMPLE:rdCnam$(CARD)F"
+controlPv "$(DEVN):rdCnam$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3821,11 +3843,11 @@ x 320
 y 370
 w 50
 h 14
-controlPv "EXAMPLE:setModCount$(CARD)F"
+controlPv "$(DEVN):setModCount$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -3845,7 +3867,7 @@ x 320
 y 390
 w 50
 h 14
-controlPv "EXAMPLE:rdModCount$(CARD)F"
+controlPv "$(DEVN):rdModCount$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3891,11 +3913,11 @@ x 375
 y 370
 w 50
 h 14
-controlPv "EXAMPLE:setModOff$(CARD)F"
+controlPv "$(DEVN):setModOff$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -3915,7 +3937,7 @@ x 375
 y 390
 w 50
 h 14
-controlPv "EXAMPLE:rdModOff$(CARD)F"
+controlPv "$(DEVN):rdModOff$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -3961,11 +3983,11 @@ x 510
 y 370
 w 50
 h 14
-controlPv "EXAMPLE:setStepBack$(CARD)F"
+controlPv "$(DEVN):setStepBack$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
-bgColor index 32
+bgColor index 1
 editable
 autoHeight
 limitsFromDb
@@ -3985,7 +4007,7 @@ x 510
 y 390
 w 50
 h 14
-controlPv "EXAMPLE:rdStepBack$(CARD)F"
+controlPv "$(DEVN):rdStepBack$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -4046,8 +4068,9 @@ menuLabel {
   0 "GoSignal Settings"
 }
 symbols {
-  0 "DEVN=EXAMPLE,APP_NAME=BmeDelGenApp,CARD=$(CARD),CHAN=F"
+  0 "DEVN=$(DEVN),APP_NAME=SlicingApp,CARD=$(CARD),CHAN=F"
 }
+icon
 endObjectProperties
 
 # (Menu Button)
@@ -4061,11 +4084,11 @@ y 369
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:selLink$(CARD)EF"
+controlPv "$(DEVN):selLink$(CARD)EF"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -4079,7 +4102,7 @@ x 430
 y 390
 w 75
 h 14
-controlPv "EXAMPLE:stLink$(CARD)EF"
+controlPv "$(DEVN):stLink$(CARD)EF"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -4126,11 +4149,11 @@ y 369
 w 120
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setDelClk$(CARD)F"
+controlPv "$(DEVN):setDelClk$(CARD)F"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -4144,7 +4167,7 @@ x 565
 y 390
 w 120
 h 14
-controlPv "EXAMPLE:rdDelClk$(CARD)F"
+controlPv "$(DEVN):rdDelClk$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -4191,11 +4214,11 @@ y 369
 w 75
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setIntlT$(CARD)F"
+controlPv "$(DEVN):setIntlT$(CARD)F"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -4209,7 +4232,7 @@ x 795
 y 390
 w 75
 h 14
-controlPv "EXAMPLE:rdIntlT$(CARD)F"
+controlPv "$(DEVN):rdIntlT$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
@@ -4256,11 +4279,11 @@ y 369
 w 100
 h 19
 fgColor index 14
-bgColor index 32
-inconsistentColor index 21
+bgColor index 1
+inconsistentColor index 20
 topShadowColor index 1
 botShadowColor index 7
-controlPv "EXAMPLE:setOutPol$(CARD)F"
+controlPv "$(DEVN):setOutPol$(CARD)F"
 font "helvetica-bold-r-10.0"
 endObjectProperties
 
@@ -4274,7 +4297,7 @@ x 690
 y 390
 w 100
 h 14
-controlPv "EXAMPLE:rdOutPol$(CARD)F"
+controlPv "$(DEVN):rdOutPol$(CARD)F"
 font "helvetica-bold-r-12.0"
 fontAlign "right"
 fgColor index 14
