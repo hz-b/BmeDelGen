@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 416
-y 470
+x 736
+y 335
 w 600
 h 140
 font "helvetica-medium-r-18.0"
@@ -66,8 +66,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 95
-y 60
+x 10
+y 85
 w 80
 h 20
 fgColor index 14
@@ -101,8 +101,8 @@ beginObjectProperties
 major 4
 minor 4
 release 0
-x 180
-y 60
+x 10
+y 110
 w 80
 h 20
 fgColor index 14
@@ -125,37 +125,13 @@ symbols {
 icon
 endObjectProperties
 
-# (Message Button)
-object activeMessageButtonClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 265
-y 60
-w 80
-h 20
-fgColor index 14
-onColor index 5
-offColor index 5
-topShadowColor index 1
-botShadowColor index 7
-controlPv "$(DEVN):aply"
-pressValue "1"
-onLabel "APPLY"
-offLabel "APPLY"
-3d
-useEnumNumeric
-font "helvetica-bold-r-10.0"
-endObjectProperties
-
 # (Button)
 object activeButtonClass
 beginObjectProperties
 major 4
 minor 1
 release 0
-x 400
+x 405
 y 110
 w 80
 h 20
@@ -180,7 +156,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 400
+x 405
 y 85
 w 80
 h 20
@@ -245,7 +221,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 180
+x 95
 y 85
 w 80
 h 20
@@ -273,7 +249,7 @@ major 4
 minor 1
 release 0
 x 95
-y 85
+y 60
 w 80
 h 20
 fgColor index 14
@@ -290,50 +266,6 @@ useEnumNumeric
 font "helvetica-bold-r-10.0"
 visMin "0"
 visMax "1"
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 315
-y 85
-w 30
-h 14
-controlPv "$(DEVN):cfgIdx"
-font "helvetica-bold-r-12.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 1
-editable
-autoHeight
-limitsFromDb
-nullColor index 7
-useHexPrefix
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 265
-y 85
-w 46
-h 12
-font "helvetica-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Cfg. Idx.:"
-}
-autoSize
 endObjectProperties
 
 # (Rectangle)
@@ -466,7 +398,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 360
+x 365
 y 60
 w 120
 h 15
@@ -489,7 +421,7 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 360
+x 365
 y 60
 w 120
 h 15
@@ -502,7 +434,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 360
+x 365
 y 60
 w 120
 h 15
@@ -676,5 +608,243 @@ endObjectProperties
 
 endGroup
 
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 95
+y 112
+w 80
+h 14
+
+beginGroup
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 145
+y 112
+w 30
+h 14
+controlPv "$(DEVN):cfgIdx"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 1
+editable
+autoHeight
+limitsFromDb
+nullColor index 7
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 95
+y 112
+w 46
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Cfg. Idx.:"
+}
+autoSize
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 180
+y 60
+w 80
+h 20
+fgColor index 14
+onColor index 5
+offColor index 5
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):aply"
+pressValue "1"
+onLabel "APPLY"
+offLabel "APPLY"
+3d
+useEnumNumeric
+font "helvetica-bold-r-10.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 180
+y 85
+w 80
+h 20
+fgColor index 14
+onColor index 5
+offColor index 5
+topShadowColor index 1
+botShadowColor index 7
+controlPv "$(DEVN):load"
+pressValue "1"
+onLabel "LOAD"
+offLabel "LOAD"
+3d
+useEnumNumeric
+font "helvetica-bold-r-10.0"
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 345
+y 62
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):rstEvntCntr"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 265
+y 62
+w 76
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Rst. Evnt. Cntr."
+}
+autoSize
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 345
+y 77
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):rstModCntr"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 265
+y 77
+w 76
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Rst. Mod. Cntr."
+}
+autoSize
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 345
+y 92
+w 12
+h 12
+fgColor index 14
+onColor index 15
+offColor index 9
+inconsistentColor index 2
+topShadowColor index 2
+botShadowColor index 14
+controlPv "$(DEVN):rstTimeList"
+labelType "literal"
+3d
+font "helvetica-bold-r-10.0"
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 265
+y 92
+w 70
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Rst. Time List"
+}
+autoSize
 endObjectProperties
 

@@ -32,6 +32,37 @@ record(bo, "$(DEVN):aply") {
     field(DISS, "INVALID")
 }
 
+#LOAD i,j,k	Load All Card Parameters
+record(bo, "$(DEVN):load") {
+    field(DESC, "apply settings + optional counter reset")
+    field(DTYP, "stream")
+    field(OUT,  "@$(PROTO) load($(DEVN)) $(P) -1")
+    field(DISV, "1")
+    field(SDIS, "$(DEVN):disable NMS")
+    field(DISS, "INVALID")
+}
+
+record(bo, "$(DEVN):rstEvntCntr") {
+    field(DESC, "reset event counter on load")
+    field(ZNAM, "FALSE")
+    field(ONAM, "TRUE")
+    field(VAL,  "0")
+}
+
+record(bo, "$(DEVN):rstModCntr") {
+    field(DESC, "reset modulo counter on load")
+    field(ZNAM, "FALSE")
+    field(ONAM, "TRUE")
+    field(VAL,  "0")
+}
+
+record(bo, "$(DEVN):rstTimeList") {
+    field(DESC, "set all memory read pointers on load")
+    field(ZNAM, "FALSE")
+    field(ONAM, "TRUE")
+    field(VAL,  "0")
+}
+
 record(bo, "$(DEVN):rcl") {
     field(DESC, "recall settings")
     field(DISV, "1")

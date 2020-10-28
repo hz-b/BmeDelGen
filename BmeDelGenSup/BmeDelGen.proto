@@ -58,6 +58,11 @@ getIDN {out "*IDN?"; in "%\$1[^\r\n]"; ExtraInput = Ignore;}
 selfTest {out "*TST?"; in "%\$1[^\r\n]"; ExtraInput = Ignore;}
 lock { out "\$1 %d,\$2"; }
 
+load {
+    DEVN="\$1";
+    out "LOAD %("$DEVN":rstEvntCntr.VAL)d,%("$DEVN":rstModCntr.VAL)d,%("$DEVN":rstTimeList.VAL)d";
+}
+
 rcl {
     CFGIDX="\$1";
     out "*RCL %("$CFGIDX".VAL)d";
